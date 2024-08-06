@@ -25,7 +25,9 @@ spec:
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/matoru.ru
         githubConfigSecret: pre-defined-secret
-          
+        controllerServiceAccount:
+          namespace: arc-system
+          name: github-actions-runner-controller
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
