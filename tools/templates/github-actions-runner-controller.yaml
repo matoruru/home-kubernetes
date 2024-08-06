@@ -13,7 +13,7 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   - chart: gha-runner-scale-set-controller
-    repoURL: https://kubernetes.github.io/ingress-nginx
+    repoURL: oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set-controller
     targetRevision: 0.9.3
   syncPolicy:
     syncOptions:
