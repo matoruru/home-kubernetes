@@ -27,7 +27,7 @@ spec:
         githubConfigSecret: pre-defined-secret
         controllerServiceAccount:
           namespace: arc-system
-          name: github-actions-runner-controller
+          name: arc-gha-rs-controller
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.9.3
@@ -38,7 +38,7 @@ spec:
         githubConfigSecret: pre-defined-secret
         controllerServiceAccount:
           namespace: arc-system
-          name: github-actions-runner-controller
+          name: arc-gha-rs-controller
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
