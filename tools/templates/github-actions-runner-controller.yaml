@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: github-actions-runner-controller
+  namespace: argocd
+spec:
+  destination:
+    namespace: arc-systems
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - path: tools/manifests/gha-runner-scale-set-controller
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+  - chart: gha-runner-scale-set-controller
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    targetRevision: 0.9.3
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
