@@ -9,7 +9,7 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
-    path: playgrounds/0006/apps/manifests/sample-nginx
+    path: apps/manifests/sample-nginx
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
