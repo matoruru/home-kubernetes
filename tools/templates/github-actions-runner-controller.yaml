@@ -27,7 +27,7 @@ spec:
         githubConfigSecret: pre-defined-secret
         controllerServiceAccount:
           namespace: arc-system
-          name: arc-gha-rs-controller
+          name: raspi-runner-set-matoru.ru-gha-rs
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.9.3
@@ -38,7 +38,7 @@ spec:
         githubConfigSecret: pre-defined-secret
         controllerServiceAccount:
           namespace: arc-system
-          name: arc-gha-rs-controller
+          name: raspi-runner-set-playground-gha-rs
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
