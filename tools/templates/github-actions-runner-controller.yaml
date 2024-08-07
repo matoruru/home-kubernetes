@@ -27,7 +27,7 @@ spec:
         githubConfigSecret: pre-defined-secret
         controllerServiceAccount:
           namespace: arc-system
-          name: raspi-runner-set-playground-gha-rs-no-permission
+          name: arc-gha-rs-controller
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
