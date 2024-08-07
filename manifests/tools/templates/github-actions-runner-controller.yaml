@@ -52,8 +52,9 @@ spec:
           name: arc-gha-rs-controller
         template:
           spec:
-            containers[0]:
-              image: matoruru/gha-runner-matoruru:latest
+            containers:
+              '0':
+                image: matoruru/gha-runner-matoruru:latest
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
