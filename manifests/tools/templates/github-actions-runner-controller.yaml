@@ -53,8 +53,9 @@ spec:
         template:
           spec:
             containers:
-              '0':
+              - name: runner
                 image: matoruru/gha-runner-matoruru:latest
+                command: ["/home/runner/run.sh"]
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
