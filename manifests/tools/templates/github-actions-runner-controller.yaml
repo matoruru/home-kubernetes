@@ -68,7 +68,10 @@ spec:
             containers:
             - name: runner
               image: matoruru/gha-runner-matoruru:latest
-              command: ["/runnertmp/run.sh"]
+              command:
+              - sh
+              - -c
+              - chmod 666 /var/run/docker.sock && /runnertmp/run.sh
               env:
               - name: DOCKER_HOST
                 value: unix:///var/run/docker.sock
