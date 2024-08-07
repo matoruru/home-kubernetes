@@ -32,7 +32,7 @@ spec:
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.9.3
     helm:
-      releaseName: raspi-runner-set-.xmonad
+      releaseName: raspi-runner-set-xmonad
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/.xmonad
         githubConfigSecret: pre-defined-secret
@@ -42,3 +42,7 @@ spec:
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
+    - ServerSideApply=true
+    automated:
+      selfHeal: true
+      prune: false # For avoiding infinite loop for AutoscalingListener.
