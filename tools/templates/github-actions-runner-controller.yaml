@@ -26,7 +26,7 @@ spec:
         githubConfigUrl: https://github.com/matoruru/playground
         githubConfigSecret: pre-defined-secret
         controllerServiceAccount:
-          namespace: arc-system
+          namespace: arc-systems
           name: arc-gha-rs-controller
   syncPolicy:
     syncOptions:
