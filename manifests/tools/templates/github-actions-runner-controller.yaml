@@ -110,5 +110,5 @@ spec:
     - CreateNamespace=true
     - ServerSideApply=true
     automated:
-      selfHeal: true
+      selfHeal: false
       prune: false # For avoiding infinite loop for AutoscalingListener.
