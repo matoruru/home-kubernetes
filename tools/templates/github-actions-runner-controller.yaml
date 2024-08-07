@@ -28,6 +28,17 @@ spec:
         controllerServiceAccount:
           namespace: arc-systems
           name: arc-gha-rs-controller
+  - chart: gha-runner-scale-set
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: 0.9.3
+    helm:
+      releaseName: raspi-runner-set-.xmonad
+      valuesObject:
+        githubConfigUrl: https://github.com/matoruru/.xmonad
+        githubConfigSecret: pre-defined-secret
+        controllerServiceAccount:
+          namespace: arc-systems
+          name: arc-gha-rs-controller
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
