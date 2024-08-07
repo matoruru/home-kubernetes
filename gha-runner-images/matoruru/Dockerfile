@@ -1,2 +1,10 @@
-FROM ghcr.io/actions/actions-runner:latest
-RUN sudo apt-get install -y jq
+FROM summerwind/actions-runner-dind
+
+USER root
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y jq
+
+USER runner
+

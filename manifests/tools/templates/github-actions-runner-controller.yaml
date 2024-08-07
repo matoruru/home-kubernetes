@@ -33,7 +33,7 @@ spec:
             containers:
               - name: runner
                 image: matoruru/gha-runner-playground:latest
-                command: ["/home/runner/run.sh"]
+                command: ["/runnertmp/run.sh"]
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.9.3
