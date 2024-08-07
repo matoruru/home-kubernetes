@@ -71,7 +71,7 @@ spec:
               command:
               - sh
               - -c
-              - /runnertmp/run.sh && chmod 666 /var/run/docker.sock
+              - /runnertmp/run.sh && sudo chmod 666 /var/run/docker.sock
               env:
               - name: DOCKER_HOST
                 value: unix:///var/run/docker.sock
