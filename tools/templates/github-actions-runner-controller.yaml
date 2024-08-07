@@ -28,9 +28,6 @@ spec:
         controllerServiceAccount:
           namespace: arc-systems
           name: arc-gha-rs-controller
-  ignoreDifferences:
-   - group: actions.github.com
-     kind: AutoscalingListener
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
