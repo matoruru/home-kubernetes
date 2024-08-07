@@ -70,9 +70,8 @@ spec:
                 value: unix:///home/runner/var/run/docker.sock
               securityContext:
                 privileged: true
-                # Use root for lowlighter/metrics action which requires higher permission.
-                runAsUser: 0
-                runAsGroup: 0
+                runAsUser: 1001
+                runAsGroup: 1001
               volumeMounts:
               - name: work
                 mountPath: /home/runner/_work
