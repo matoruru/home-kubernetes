@@ -25,6 +25,9 @@ spec:
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/playground
         githubConfigSecret: pre-defined-secret
+        controllerServiceAccount:
+          namespace: arc-system
+          name: raspi-runner-set-playground-gha-rs-no-permission
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

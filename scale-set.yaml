@@ -1,0 +1,160 @@
+---
+# Source: gha-runner-scale-set/templates/no_permission_serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: raspi-runner-set-playground-gha-rs-no-permission
+  namespace: arc-systems
+  labels:
+    helm.sh/chart: gha-rs-0.9.3
+    app.kubernetes.io/name: raspi-runner-set-playground
+    app.kubernetes.io/instance: raspi-runner-set-playground
+    app.kubernetes.io/version: "0.9.3"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: gha-rs
+    actions.github.com/scale-set-name: raspi-runner-set-playground
+    actions.github.com/scale-set-namespace: arc-systems
+  finalizers:
+    - actions.github.com/cleanup-protection
+---
+# Source: gha-runner-scale-set/templates/manager_role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: raspi-runner-set-playground-gha-rs-manager
+  namespace: arc-systems
+  labels:
+    helm.sh/chart: gha-rs-0.9.3
+    app.kubernetes.io/name: raspi-runner-set-playground
+    app.kubernetes.io/instance: raspi-runner-set-playground
+    app.kubernetes.io/version: "0.9.3"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: gha-rs
+    actions.github.com/scale-set-name: raspi-runner-set-playground
+    actions.github.com/scale-set-namespace: arc-systems
+    app.kubernetes.io/component: manager-role
+  finalizers:
+    - actions.github.com/cleanup-protection
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - create
+  - delete
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - pods/status
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - serviceaccounts
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - rolebindings
+  verbs:
+  - create
+  - delete
+  - get
+  - patch
+  - update
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - roles
+  verbs:
+  - create
+  - delete
+  - get
+  - patch
+  - update
+---
+# Source: gha-runner-scale-set/templates/manager_role_binding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: raspi-runner-set-playground-gha-rs-manager
+  namespace: arc-systems
+  labels:
+    helm.sh/chart: gha-rs-0.9.3
+    app.kubernetes.io/name: raspi-runner-set-playground
+    app.kubernetes.io/instance: raspi-runner-set-playground
+    app.kubernetes.io/version: "0.9.3"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: gha-rs
+    actions.github.com/scale-set-name: raspi-runner-set-playground
+    actions.github.com/scale-set-namespace: arc-systems
+    app.kubernetes.io/component: manager-role-binding
+  finalizers:
+    - actions.github.com/cleanup-protection
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: raspi-runner-set-playground-gha-rs-manager
+subjects:
+- kind: ServiceAccount
+  name: 
+    raspi-runner-set-playground-gha-rs-no-permission
+  namespace: 
+    arc-systems
+---
+# Source: gha-runner-scale-set/templates/autoscalingrunnerset.yaml
+apiVersion: actions.github.com/v1alpha1
+kind: AutoscalingRunnerSet
+metadata:
+  name: raspi-runner-set-playground
+  namespace: arc-systems
+  labels:
+    app.kubernetes.io/component: "autoscaling-runner-set"
+    helm.sh/chart: gha-rs-0.9.3
+    app.kubernetes.io/name: raspi-runner-set-playground
+    app.kubernetes.io/instance: raspi-runner-set-playground
+    app.kubernetes.io/version: "0.9.3"
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: gha-rs
+    actions.github.com/scale-set-name: raspi-runner-set-playground
+    actions.github.com/scale-set-namespace: arc-systems
+  annotations:
+    actions.github.com/values-hash: 9e5bf9b3d9967732a61cb5bbeb9610481c8dadf39ac9170cc492f5054337795
+    actions.github.com/cleanup-manager-role-binding: raspi-runner-set-playground-gha-rs-manager
+    actions.github.com/cleanup-manager-role-name: raspi-runner-set-playground-gha-rs-manager
+    actions.github.com/cleanup-no-permission-service-account-name: raspi-runner-set-playground-gha-rs-no-permission
+spec:
+  githubConfigUrl: https://github.com/matoruru/playground
+  githubConfigSecret: pre-defined-secret
+
+  template:
+    spec:
+      restartPolicy: Never
+      serviceAccountName: raspi-runner-set-playground-gha-rs-no-permission
+      containers:
+      
+      - name: runner
+        command: 
+          - /home/runner/run.sh
+        image: 
+          ghcr.io/actions/actions-runner:latest
