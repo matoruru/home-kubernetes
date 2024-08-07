@@ -23,6 +23,9 @@ spec:
     helm:
       releaseName: raspi-runner-set-matoruru
       valuesObject:
+        controllerServiceAccount:
+          namespace: arc-systems
+          name: arc-gha-rs-controller
         githubConfigUrl: https://github.com/matoruru/matoruru
         githubConfigSecret: pre-defined-secret
         maxRunners: 1
