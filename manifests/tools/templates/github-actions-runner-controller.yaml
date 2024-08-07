@@ -28,6 +28,12 @@ spec:
         controllerServiceAccount:
           namespace: arc-systems
           name: arc-gha-rs-controller
+        template:
+          spec:
+            containers:
+              - name: runner
+                image: matoruru/gha-runner-playground:latest
+                command: ["/home/runner/run.sh"]
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.9.3
