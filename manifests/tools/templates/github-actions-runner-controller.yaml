@@ -51,8 +51,10 @@ spec:
           namespace: arc-systems
           name: arc-gha-rs-controller
         spec:
-          containers[0]:
-            image: matoruru/gha-runner-matoruru:latest
+          containers:
+            - name: runner
+              image: matoruru/gha-runner-matoruru:latest
+              command: ["/home/runner/run.sh"]
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
