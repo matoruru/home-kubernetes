@@ -15,10 +15,6 @@ spec:
   - chart: datadog-crds
     repoURL: https://helm.datadoghq.com
     targetRevision: 1.7.2
-    helm:
-      valuesObject:
-        datadog:
-          apiKeyExistingSecret: datadog-secret
   - chart: datadog
     repoURL: https://helm.datadoghq.com
     targetRevision: 3.69.3
