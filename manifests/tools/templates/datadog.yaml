@@ -12,11 +12,11 @@ spec:
   - path: manifests/tools/manifests/datadog
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-  - chart: datadog-operator
-    repoURL: https://helm.datadoghq.com/datadog
-    targetRevision: 1.8.6
-    helm:
-      releaseName: datadog-operator
+  # - chart: datadog-operator
+  #   repoURL: https://helm.datadoghq.com/datadog
+  #   targetRevision: 1.8.6
+  #   helm:
+  #     releaseName: datadog-operator
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
