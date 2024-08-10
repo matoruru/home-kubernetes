@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: matoru.ru
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: matoru.ru
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web
+            port:
+              number: 8080
