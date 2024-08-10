@@ -5,3 +5,7 @@ spec:
   source:
     repoURL: https://github.com/matoruru/home-kubernetes
     targetRevision: main
+
+gha:
+  chart:
+    version: 0.9.3
