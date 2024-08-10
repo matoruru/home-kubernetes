@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: github-actions-runner-controller
-  namespace: argocd
+  namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
     namespace: arc-systems

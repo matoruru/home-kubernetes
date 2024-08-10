@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: akv2k8s
-  namespace: argocd
+  namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
     namespace: akv2k8s
