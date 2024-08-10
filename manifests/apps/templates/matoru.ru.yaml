@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
-    namespace: matoru.ru
+    namespace: matoru-ru
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
