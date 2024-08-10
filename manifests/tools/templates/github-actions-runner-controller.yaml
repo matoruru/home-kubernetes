@@ -199,12 +199,12 @@ spec:
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: 0.9.3
     helm:
-      releaseName: raspi-runner-set-matoru-ru
+      releaseName: raspi-runner-set-plain
       valuesObject:
         controllerServiceAccount:
           namespace: arc-systems
           name: arc-gha-rs-controller
-        githubConfigUrl: https://github.com/matoruru/matoru.ru
+        githubConfigUrl: https://github.com/matoruru
         githubConfigSecret: pre-defined-secret
         maxRunners: 1
         minRunners: 0
@@ -241,7 +241,7 @@ spec:
                 name: dind-home
             containers:
             - name: runner
-              image: matoruru/gha-runner-playground:latest
+              image: ghcr.io/actions/actions-runner:latest
               command: ["/home/runner/run.sh"]
               env:
               - name: DOCKER_HOST
