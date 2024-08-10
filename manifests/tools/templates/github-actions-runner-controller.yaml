@@ -115,7 +115,7 @@ spec:
         controllerServiceAccount:
           namespace: arc-systems
           name: arc-gha-rs-controller
-        githubConfigUrl: https://github.com/matoruru
+        githubConfigUrl: https://github.com/matoruru/matoru.ru
         githubConfigSecret: pre-defined-secret
         maxRunners: 1
         minRunners: 0
