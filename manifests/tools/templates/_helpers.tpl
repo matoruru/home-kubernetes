@@ -1,4 +1,4 @@
-{{- define "github-actions-runner-controller.valuesObject.base" }}
+{{- define "github-actions-runner-controller.valuesObject.base" -}}
 controllerServiceAccount:
   namespace: arc-systems
   name: arc-gha-rs-controller
@@ -81,4 +81,4 @@ template:
       emptyDir: {}
     - name: dind-home
       emptyDir: {}
-{{- end }}
+{{- end -}}

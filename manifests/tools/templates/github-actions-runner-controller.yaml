@@ -24,7 +24,7 @@ spec:
       releaseName: raspi-runner-set-playground
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/playground
-        {{- include "github-actions-runner-controller.valuesObject.base" . | indent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}
@@ -32,7 +32,7 @@ spec:
       releaseName: raspi-runner-set-matoruru-homepage
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/matoru.ru
-        {{- include "github-actions-runner-controller.valuesObject.base" . | indent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}
@@ -40,7 +40,7 @@ spec:
       releaseName: raspi-runner-set-matoruru-profile
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/matoruru
-        {{- include "github-actions-runner-controller.valuesObject.base" . | indent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
