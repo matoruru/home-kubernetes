@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sample-nginx
-  namespace: argocd
+  namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
     namespace: sample-nginx
