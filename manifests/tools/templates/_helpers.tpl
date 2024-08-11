@@ -3,8 +3,8 @@ controllerServiceAccount:
   namespace: arc-systems
   name: arc-gha-rs-controller
 githubConfigSecret: pre-defined-secret
-maxRunners: 1
-minRunners: 0
+maxRunners: 3
+minRunners: 1
 template:
   spec:
     initContainers:
