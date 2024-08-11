@@ -32,7 +32,7 @@ spec:
       releaseName: raspi-runner-set-matoruru-homepage
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/matoru.ru
-        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.base" (merge (dict "runnerImage" "matoruru/gha-runner-base:latest") .) | nindent 8 }}
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}

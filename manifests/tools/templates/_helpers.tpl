@@ -38,7 +38,7 @@ template:
         name: dind-home
     containers:
     - name: runner
-      image: ghcr.io/actions/actions-runner:latest
+      image: {{ .runnerImage | default "ghcr.io/actions/actions-runner:latest" }}
       command: ["/home/runner/run.sh"]
       env:
       - name: DOCKER_HOST
