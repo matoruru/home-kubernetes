@@ -45,6 +45,4 @@ spec:
     syncOptions:
     - CreateNamespace=true
     - ServerSideApply=true
-    automated:
-      selfHeal: false
-      prune: false # For avoiding infinite loop for AutoscalingListener.
+    automated: {}
