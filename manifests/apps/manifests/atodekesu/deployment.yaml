@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      run: web
+      azure.workload.identity/use: "true"
+  template:
+    metadata:
+      labels:
+        run: web
+        azure.workload.identity/use: "true"
+    spec:
+      serviceAccount: atodekesu
+      containers:
+      - image: nginx
+        imagePullPolicy: IfNotPresent
+        name: web
+        ports:
+        - containerPort: 80
+          protocol: TCP
