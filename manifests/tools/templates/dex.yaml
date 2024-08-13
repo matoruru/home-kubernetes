@@ -17,7 +17,9 @@ spec:
         config:
           issuer: https://iss.matoru.ru
           storage:
-            type: memory
+            type: kubernetes
+            config:
+              inCluster: true
           enablePasswordDB: true
         ingress:
           enabled: true
