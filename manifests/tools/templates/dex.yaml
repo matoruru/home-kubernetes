@@ -21,6 +21,7 @@ spec:
           enablePasswordDB: true
         ingress:
           enabled: true
+          className: nginx
           hosts:
             - host: iss.matoru.ru
               paths:
