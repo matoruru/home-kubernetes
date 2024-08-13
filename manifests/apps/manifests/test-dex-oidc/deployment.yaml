@@ -13,7 +13,7 @@ spec:
         run: web
         azure.workload.identity/use: "true"
     spec:
-      serviceAccount: mysa
+      serviceAccount: mys
       containers:
       - image: nginx
         imagePullPolicy: IfNotPresent

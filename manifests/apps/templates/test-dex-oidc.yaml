@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
-    namespace: test-dex-oidc
+    namespace: test-dex-oid
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
