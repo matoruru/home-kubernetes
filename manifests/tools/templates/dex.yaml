@@ -12,6 +12,19 @@ spec:
     chart: dex
     repoURL: https://charts.dexidp.io
     targetRevision: 0.19.1
+    helm:
+      valuesObject:
+        config:
+          issuer: https://iss.matoru.ru
+          storage:
+            type: memory
+          enablePasswordDB: true
+        ingress:
+          enabled: true
+          hosts:
+            - host: iss.matoru.ru
+              paths:
+                - path: /
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
