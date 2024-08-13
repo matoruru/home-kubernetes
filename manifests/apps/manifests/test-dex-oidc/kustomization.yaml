@@ -5,4 +5,4 @@ namespace: test-dex-oidc
 
 resources:
 - sa.yaml
-- sample.yaml
+- deployment.yaml
