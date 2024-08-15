@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
-    namespace: tigera-operator
+    namespace: default
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
