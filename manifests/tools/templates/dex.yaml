@@ -17,15 +17,12 @@ spec:
         config:
           issuer: https://iss.matoru.ru
           storage:
-            type: etcd
+            type: kubernetes
             config:
-              endpoints:
-              - http://0.0.0.0:2379
-              caFile: /etc/dex/etcd/ca.crt
-              certFile: /etc/dex/etcd/client.crt
-              keyFile: /etc/dex/etcd/client.key
-          web:
-            http: 0.0.0.0:5556
+              inCluster: true
+              caFile: /etc/dex/kubernetes/ca.crt
+              certFile: /etc/dex/kubernetes/client.crt
+              keyFile: /etc/dex/kubernetes/client.key
           oauth2:
             skipApprovalScreen: true
             responseTypes:
