@@ -1,27 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs
+  name: web
 spec:
   selector:
     matchLabels:
-      run: nodejs
+      run: web
       azure.workload.identity/use: "true"
   template:
     metadata:
       labels:
-        run: nodejs
+        run: web
         azure.workload.identity/use: "true"
     spec:
       serviceAccount: mysa
       containers:
-      - image: node
+      - image: nginx
         imagePullPolicy: IfNotPresent
-        name: nodejs
-        volumeMounts:
-        - name: sourcecode
-          mountPath: /app
-      volumes:
-      - name: sourcecode
-        configMap:
-          name: configmap-sourcecode
+        name: web
+        ports:
+        - containerPort: 80
+          protocol: TCP
