@@ -18,6 +18,10 @@ spec:
       - image: node
         imagePullPolicy: IfNotPresent
         name: nodejs
+        command:
+        - sh
+        - -c
+        - tail -f /dev/null
         volumeMounts:
         - name: sourcecode
           mountPath: /app
