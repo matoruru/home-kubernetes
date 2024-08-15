@@ -17,9 +17,13 @@ spec:
         config:
           issuer: https://iss.matoru.ru
           storage:
-            type: sqlite3
+            type: etcd
             config:
-              file: /var/lib/dex/dex.db
+              endpoints:
+              - http://0.0.0.0:2379
+              caFile: /etc/dex/etcd/ca.crt
+              certFile: /etc/dex/etcd/client.crt
+              keyFile: /etc/dex/etcd/client.key
           web:
             http: 0.0.0.0:5556
           oauth2:
