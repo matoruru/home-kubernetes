@@ -6,3 +6,9 @@ namespace: test-dex-oidc
 resources:
 - sa.yaml
 - deployment.yaml
+
+configMapGenerator:
+- name: configmap-sourcecode
+  files:
+  - assets/index.js
+  - assets/init.sh
