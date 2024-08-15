@@ -20,40 +20,20 @@ spec:
             type: kubernetes
             config:
               inCluster: true
-              caFile: /etc/dex/kubernetes/ca.crt
-              certFile: /etc/dex/kubernetes/client.crt
-              keyFile: /etc/dex/kubernetes/client.key
           web:
             http: 0.0.0.0:5556
           oauth2:
-            skipApprovalScreen: true
-            responseTypes:
-            - code
-            - id_token
-            - token
-          oauth2:
-            skipApprovalScreen: true
-            responseTypes:
-            - code
-            - id_token
-            - token
-          staticClients:
-          - id: kubernetes
-            name: kubernetes
-            redirectURIs:
-            - "https://kubernetes.default.svc/oauth2/callback"
-            secret: kubernetes-client-secret
-          providers:
+            responseTypes: [ "code" ]
+            scopes: [ "openid", "profile", "email" ]
+          connectors:
           - type: oidc
-            id: my-provider
-            name: My OIDC Provider
+            id: microsoft
+            name: Microsoft
             config:
-              issuer: https://iss.matoru.ru
-              clientID: my-client-id
-              clientSecret: my-client-secret
-              scopes:
-                - openid
-                - profile
+              issuer: https://login.microsoftonline.com/640dd2c2-336d-4abf-b0ee-0024877ea3fb/v2.0
+              clientID: 34de22c5-a3d1-439e-89f8-3b01ca073e1e
+              redirectURI: http://dex.example.com/callback
+              scopes: [ "openid", "profile", "email" ]
         ingress:
           enabled: true
           className: nginx
