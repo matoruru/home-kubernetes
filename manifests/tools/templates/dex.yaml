@@ -23,6 +23,14 @@ spec:
               caFile: /etc/dex/kubernetes/ca.crt
               certFile: /etc/dex/kubernetes/client.crt
               keyFile: /etc/dex/kubernetes/client.key
+          web:
+            http: 0.0.0.0:5556
+          oauth2:
+            skipApprovalScreen: true
+            responseTypes:
+            - code
+            - id_token
+            - token
           oauth2:
             skipApprovalScreen: true
             responseTypes:
