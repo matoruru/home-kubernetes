@@ -34,8 +34,9 @@ spec:
             - token
           staticClients:
           - id: kubernetes
+            name: kubernetes
             redirectURIs:
-              - "https://kubernetes.default.svc/oauth2/callback"
+            - "https://kubernetes.default.svc/oauth2/callback"
             secret: kubernetes-client-secret
           providers:
           - type: oidc
