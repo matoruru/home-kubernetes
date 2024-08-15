@@ -31,7 +31,7 @@ spec:
             name: Microsoft
             config:
               issuer: https://login.microsoftonline.com/640dd2c2-336d-4abf-b0ee-0024877ea3fb/v2.0
-              clientID: 34de22c5-a3d1-439e-89f8-3b01ca073e1e
+              clientID: 61b360e7-a277-4e79-982a-c69556c724e4
               redirectURI: http://dex.example.com/callback
               scopes: [ "openid", "profile", "email" ]
         ingress:
