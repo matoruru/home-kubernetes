@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
+- https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml
+
+patches:
+- target:
+    group: operator.tigera.io
+    version: v1
+    kind: Installation
+  patch: |-
+    - op: replace
+      path: /spec/calicoNetwork/ipPools/0/cidr
+      value: 10.244.0.0/16
+
