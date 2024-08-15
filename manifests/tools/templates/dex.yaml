@@ -17,10 +17,33 @@ spec:
         config:
           issuer: https://iss.matoru.ru
           storage:
-            type: kubernetes
+            type: sqlite3
             config:
-              inCluster: true
-          enablePasswordDB: true
+              file: /var/lib/dex/dex.db
+          web:
+            http: 0.0.0.0:5556
+          oauth2:
+            skipApprovalScreen: true
+            responseTypes:
+            - code
+            - id_token
+            - token
+          staticClients:
+          - id: kubernetes
+            redirectURIs:
+              - "https://kubernetes.default.svc/oauth2/callback"
+            secret: kubernetes-client-secret
+          providers:
+          - type: oidc
+            id: my-provider
+            name: My OIDC Provider
+            config:
+              issuer: https://iss.matoru.ru
+              clientID: my-client-id
+              clientSecret: my-client-secret
+              scopes:
+                - openid
+                - profile
         ingress:
           enabled: true
           className: nginx
