@@ -2,26 +2,16 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/tigera-operator.yaml
-- https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/custom-resources.yaml
+- https://raw.githubusercontent.com/projectcalico/calico/v3.28.1/manifests/calico.yaml
 
 patches:
 - target:
-    group: operator.tigera.io
-    version: v1
-    kind: Installation
-  patch: |-
-    - op: replace
-      path: /spec/calicoNetwork/ipPools/0/cidr
-      value: 10.244.0.0/16
-
-# A workaround for Argo CD's OutOfSync caused by an empty resources property.
-- target:
     group: apps
     version: v1
-    kind: Deployment
+    kind: DaemonSet
   patch: |-
     - op: add
-      path: /spec/template/spec/containers/0/resources
-      value: {}
-
+      path: /spec/template/spec/initContainers/0/env/-
+      value:
+        name: CALICO_IPV4POOL_CIDR
+        value: 10.244.0.0/16
