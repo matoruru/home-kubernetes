@@ -22,11 +22,22 @@ spec:
         - sh
         - -c
         - tail -f /dev/null
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - sh
+              - -c
+              - cp /mnt/sourcecode/* /app/ && cd /app && sh init.sh
+        resources: {}
         volumeMounts:
-        - name: sourcecode
+        - name: app
           mountPath: /app
-          readOnly: false
+        - name: sourcecode
+          mountPath: /mnt/sourcecode
       volumes:
+      - name: app
+        emptyDir: {}
       - name: sourcecode
         configMap:
           name: configmap-sourcecode
