@@ -25,6 +25,7 @@ spec:
         volumeMounts:
         - name: sourcecode
           mountPath: /app
+          readOnly: false
       volumes:
       - name: sourcecode
         configMap:
