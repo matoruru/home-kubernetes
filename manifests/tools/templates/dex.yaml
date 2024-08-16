@@ -32,7 +32,7 @@ spec:
             config:
               issuer: https://login.microsoftonline.com/640dd2c2-336d-4abf-b0ee-0024877ea3fb/v2.0
               clientID: 61b360e7-a277-4e79-982a-c69556c724e4
-              redirectURI: http://dex.example.com/callback
+              redirectURI: https://iss.matoru.ru/callback
               scopes: [ "openid", "profile", "email" ]
         ingress:
           enabled: true
