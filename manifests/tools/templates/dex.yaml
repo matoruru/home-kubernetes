@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dex
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: dex
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  source:
+    chart: dex
+    repoURL: https://charts.dexidp.io
+    targetRevision: 0.19.1
+    helm:
+      valuesObject:
+        config:
+          issuer: https://iss.matoru.ru
+          storage:
+            type: kubernetes
+            config:
+              inCluster: true
+          web:
+            http: 0.0.0.0:5556
+          oauth2:
+            responseTypes: [ "code" ]
+            scopes: [ "openid", "profile", "email" ]
+          connectors:
+          - type: oidc
+            id: microsoft
+            name: Microsoft
+            config:
+              issuer: https://login.microsoftonline.com/640dd2c2-336d-4abf-b0ee-0024877ea3fb/v2.0
+              clientID: 61b360e7-a277-4e79-982a-c69556c724e4
+              redirectURI: https://iss.matoru.ru/callback
+              scopes: [ "openid", "profile", "email" ]
+        ingress:
+          enabled: true
+          className: nginx
+          hosts:
+            - host: iss.matoru.ru
+              paths:
+                - path: /
+                  pathType: Prefix
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
