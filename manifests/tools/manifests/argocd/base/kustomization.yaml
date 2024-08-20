@@ -8,7 +8,6 @@ images:
   newTag: v2.10.2
 resources:
 - ./application-controller
-- ./dex
 - ./repo-server
 - ./server
 - ./config
