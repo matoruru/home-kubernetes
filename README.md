@@ -1,5 +1,5 @@
 # home-kubernetes
-My home-Kubernetes cluster's manifests. Please refer to `/manifests` folder for its details.
+My home-Kubernetes cluster's manifests. Please refer to [/manifests](/manifests) folder for its details.
 
 ## Architecture Diagram
 
