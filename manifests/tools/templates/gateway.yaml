@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gateway
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: default
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+resources:
+- https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
