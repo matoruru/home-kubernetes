@@ -12,6 +12,10 @@ spec:
   - chart: gateway
     repoURL:  https://istio-release.storage.googleapis.com/charts
     targetRevision: 1.23.0
+    helm:
+      valuesObject:
+        service:
+          type: ClusterIP
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
