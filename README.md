@@ -8,6 +8,8 @@ Please refer to the [/manifests](/manifests) folder for its details.
 
 ## Architecture Diagram
 
+All HTTPS traffics to the cluster are coming through Cloudflare Tunnels. For public contents like homepages it just directly allow to access to the web server. But for protected contents like any management clients such as Argo CD, it requires the user to be authenticated by Azure AD.
+
 ![](./_assets/home-kubernetes-diagram.drawio.png)
 
 ## Components
