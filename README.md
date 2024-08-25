@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to my Home-Kubernetes repository! The Home-Kubernetes cluster is a lightweight, flexible setup designed for middle-scale, personal projects. This setup can be easily adapted to suit various home automation needs, media servers, and other personal services.
+Welcome to my Home-Kubernetes repository! My Home-Kubernetes cluster is a lightweight, flexible setup designed for middle-scale, personal projects. This setup can be easily adapted to suit various home automation needs, media servers, and other personal services.
 
 Please refer to the [/manifests](/manifests) folder for its details.
 
