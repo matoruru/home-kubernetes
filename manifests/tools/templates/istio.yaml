@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: istio-system
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - chart: base
+    repoURL:  https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.23.0
+  - chart: istiod
+    repoURL:  https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.23.0
+    helm:
+      valuesObject:
+        profile: ambient
+  - chart: cni
+    repoURL:  https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.23.0
+    helm:
+      valuesObject:
+        profile: ambient
+  - chart: ztunnel
+    repoURL:  https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.23.0
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
