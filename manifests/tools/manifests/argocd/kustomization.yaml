@@ -5,5 +5,5 @@ namespace: argocd
 
 resources:
 - ./ingress.yaml
-- ./argocd-secret.akv
+- ./argocd-secret.akv.yaml
 - ./appprojects/
