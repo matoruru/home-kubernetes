@@ -4,7 +4,6 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- ./ns.yaml
-- ./cluster-install/
 - ./ingress.yaml
+- ./argocd-secret.akv
 - ./appprojects/
