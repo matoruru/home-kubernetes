@@ -4,7 +4,20 @@ kind: Kustomization
 namespace: argocd
 
 resources:
+- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v2.12.1
 - ./ns.yaml
-- ./cluster-install/
 - ./ingress.yaml
 - ./appprojects/
+- ./config/
+
+patches:
+- path: ./config/patches/argocd-cm.yaml
+  target:
+    version: v1
+    kind: ConfigMap
+    name: argocd-cm
+- path: ./config/patches/argocd-rbac-cm.yaml
+  target:
+    version: v1
+    kind: ConfigMap
+    name: argocd-rbac-cm
