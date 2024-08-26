@@ -17,7 +17,6 @@ spec:
     targetRevision: 7.4.4
     helm:
       valuesObject:
-        fullnameOverride: argocd
         configs:
           cm:
             admin.enabled: false
