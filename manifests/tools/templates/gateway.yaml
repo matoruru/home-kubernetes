@@ -8,9 +8,10 @@ spec:
     namespace: default
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
+  resources:
+  - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
-  resources:
-  - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
+
