@@ -12,5 +12,5 @@ spec:
     automated:
       selfHeal: true
       prune: true
-resources:
-- https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
+  resources:
+  - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.1.0/standard-install.yaml
