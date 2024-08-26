@@ -1,27 +1,22 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: argocd-cm
-  labels:
-    app.kubernetes.io/name: argocd-cm
-    app.kubernetes.io/part-of: argocd
-data:
-  admin.enabled: "false"
+- op: add
+  path: /data
+  value:
+    admin.enabled: "false"
 
-  # Enabling Exec tab
-  exec.enabled: 'true'
+    # Enabling Exec tab
+    exec.enabled: 'true'
 
-  # SSO: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/microsoft/
-  url: https://argocd.matoru.ru/ # Replace with the external base URL of your Argo CD
-  oidc.config: |
-    name: Azure
-    issuer: https://login.microsoftonline.com/640dd2c2-336d-4abf-b0ee-0024877ea3fb/v2.0
-    clientID: 43d9ca70-41c6-4210-a3cc-eb7717b1f4bc
-    clientSecret: $oidc.azure.clientSecret
-    requestedIDTokenClaims:
-      groups:
-        essential: true
-    requestedScopes:
-    - openid
-    - profile
-    - email
+    # SSO: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/microsoft/
+    url: https://argocd.matoru.ru/ # Replace with the external base URL of your Argo CD
+    oidc.config: |
+      name: Azure
+      issuer: https://login.microsoftonline.com/640dd2c2-336d-4abf-b0ee-0024877ea3fb/v2.0
+      clientID: 43d9ca70-41c6-4210-a3cc-eb7717b1f4bc
+      clientSecret: $oidc.azure.clientSecret
+      requestedIDTokenClaims:
+        groups:
+          essential: true
+      requestedScopes:
+      - openid
+      - profile
+      - email

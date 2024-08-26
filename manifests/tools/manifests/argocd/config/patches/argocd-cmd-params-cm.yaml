@@ -1,0 +1,4 @@
+- op: add
+  path: /data
+  value:
+    server.insecure: "true"

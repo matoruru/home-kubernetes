@@ -21,3 +21,8 @@ patches:
     version: v1
     kind: ConfigMap
     name: argocd-rbac-cm
+- path: ./config/patches/argocd-cmd-params-cm.yaml
+  target:
+    version: v1
+    kind: ConfigMap
+    name: argocd-cmd-params-cm
