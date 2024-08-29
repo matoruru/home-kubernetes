@@ -6,7 +6,7 @@ spec:
   parentRefs:
   - group: ""
     kind: Service
-    name: web
+    name: gateway-istio
   rules:
   - filters:
     - type: RequestHeaderModifier
