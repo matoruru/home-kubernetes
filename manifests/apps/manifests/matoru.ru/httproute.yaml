@@ -6,9 +6,14 @@ spec:
   parentRefs:
   - group: ""
     kind: Service
-    name: gateway-istio
-    namespace: istio-ingress
+    name: web
   rules:
-  - backendRefs:
+  - filters:
+    - type: RequestHeaderModifier
+      requestHeaderModifier:
+        add:
+        - name: my-added-header
+          value: added-value
+    backendRefs:
     - name: web
       port: 8080
