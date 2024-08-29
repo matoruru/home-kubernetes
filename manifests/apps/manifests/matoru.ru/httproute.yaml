@@ -10,7 +10,7 @@ spec:
   matches:
   - path:
     type: PathPrefix
-    value: /
+    value: /particles
   rules:
   - backendRefs:
     - name: web
