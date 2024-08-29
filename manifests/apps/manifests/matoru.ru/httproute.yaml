@@ -4,14 +4,10 @@ metadata:
   name: mesh
 spec:
   parentRefs:
-  - kind: Service
+  - group: ""
+    kind: Service
     name: gateway-istio
-    namespace: istio-ingress
   rules:
   - backendRefs:
     - name: web
       port: 8080
-    matches:
-    - path:
-        type: PathPrefix
-        value: /
