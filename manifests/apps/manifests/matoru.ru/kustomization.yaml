@@ -6,5 +6,4 @@ namespace: matoru-ru
 resources:
 - ./ns.yaml
 - ./deployment.yaml
-- ./ingress.yaml
 - ./service.yaml
