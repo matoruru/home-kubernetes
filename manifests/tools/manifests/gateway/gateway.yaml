@@ -10,7 +10,7 @@ spec:
   listeners:
   - name: star-matoru-ru
     hostname: "*.matoru.ru"
-    port: 80
+    port: 8080
     protocol: HTTP
     allowedRoutes:
       namespaces:
