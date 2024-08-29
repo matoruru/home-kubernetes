@@ -5,7 +5,7 @@ metadata:
 spec:
   parentRefs:
   - name: gateway-istio
-    port: 80
+    namespace: istio-ingress
   rules:
   - backendRefs:
     - name: web
