@@ -15,5 +15,7 @@ spec:
         - name: my-added-header
           value: added-value
     backendRefs:
-    - name: web
+    - group: ""
+      kind: Service
+      name: web
       port: 8080
