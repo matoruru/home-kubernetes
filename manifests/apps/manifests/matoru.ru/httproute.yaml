@@ -6,7 +6,7 @@ spec:
   parentRefs:
   - group: ""
     kind: Service
-    name: gateway
+    name: gateway-istio
     namespace: istio-ingress
   rules:
   - backendRefs:
