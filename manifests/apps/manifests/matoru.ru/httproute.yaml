@@ -7,6 +7,10 @@ spec:
   - kind: Service
     name: gateway-istio
     port: 80
+  matches:
+  - path:
+    type: PathPrefix
+    value: /
   rules:
   - backendRefs:
     - name: web
