@@ -8,13 +8,7 @@ spec:
     kind: Service
     name: gateway-istio
   rules:
-  - filters:
-    - type: RequestHeaderModifier
-      requestHeaderModifier:
-        add:
-        - name: my-added-header
-          value: added-value
-    backendRefs:
+  - backendRefs:
     - group: ""
       kind: Service
       name: web
