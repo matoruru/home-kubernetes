@@ -8,8 +8,8 @@ metadata:
 spec:
   gatewayClassName: istio
   listeners:
-  - name: default
-    hostname: "*.k8s.matoru.ru"
+  - name: star-matoru-ru
+    hostname: "*.matoru.ru"
     port: 80
     protocol: HTTP
     allowedRoutes:
