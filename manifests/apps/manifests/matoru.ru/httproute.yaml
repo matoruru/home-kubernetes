@@ -4,7 +4,8 @@ metadata:
   name: mesh
 spec:
   parentRefs:
-  - name: gateway-istio
+  - kind: Service
+    name: gateway-istio
     namespace: istio-ingress
   rules:
   - backendRefs:
