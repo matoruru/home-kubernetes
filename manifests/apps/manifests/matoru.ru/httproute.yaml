@@ -7,11 +7,11 @@ spec:
   - kind: Service
     name: gateway-istio
     port: 80
-  matches:
-  - path:
-    type: PathPrefix
-    value: /particles
   rules:
   - backendRefs:
     - name: web
       port: 8080
+    matches:
+      path:
+        type: PathPrefix
+        value: /
