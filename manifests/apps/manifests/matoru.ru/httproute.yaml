@@ -12,6 +12,6 @@ spec:
     - name: web
       port: 8080
     matches:
-      path:
-        type: PathPrefix
-        value: /
+    - path:
+      type: PathPrefix
+      value: /
