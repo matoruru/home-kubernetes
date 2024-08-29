@@ -4,8 +4,7 @@ metadata:
   name: mesh
 spec:
   parentRefs:
-  - kind: Service
-    name: gateway-istio
+  - name: gateway-istio
     port: 80
   rules:
   - backendRefs:
@@ -13,5 +12,5 @@ spec:
       port: 8080
     matches:
     - path:
-      type: PathPrefix
-      value: /
+        type: PathPrefix
+        value: /
