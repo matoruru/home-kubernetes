@@ -6,6 +6,7 @@ spec:
   parentRefs:
   - kind: Service
     name: gateway-istio
+    port: 80
   rules:
   - backendRefs:
     - name: web
