@@ -10,7 +10,5 @@ spec:
     namespace: istio-ingress
   rules:
   - backendRefs:
-    - group: ""
-      kind: Service
-      name: web
+    - name: web
       port: 8080
