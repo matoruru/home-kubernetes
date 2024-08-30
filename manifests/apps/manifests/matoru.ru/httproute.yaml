@@ -4,24 +4,10 @@ metadata:
   name: mesh
 spec:
   parentRefs:
-  - group: ""
-    kind: Service
-    name: gateway-istio
+  - kind: Gateway
+    name: gateway
     namespace: istio-ingress
   rules:
   - backendRefs:
     - name: web
       port: 8080
----
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: ReferenceGrant
-metadata:
-  name: referencegrant
-spec:
-  from:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    namespace: matoru-ru
-  to:
-  - group: ""
-    kind: Service
