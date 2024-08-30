@@ -18,30 +18,10 @@ spec:
         selector:
           matchLabels:
             shared-gateway-access: "true"
-  - name: https
-    hostname: "matoru.ru"
-    port: 443
-    protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: Selector
-        selector:
-          matchLabels:
-            shared-gateway-access: "true"
   - name: http-star
     hostname: "*.matoru.ru"
     port: 80
     protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Selector
-        selector:
-          matchLabels:
-            shared-gateway-access: "true"
-  - name: https-star
-    hostname: "*.matoru.ru"
-    port: 443
-    protocol: HTTPS
     allowedRoutes:
       namespaces:
         from: Selector
