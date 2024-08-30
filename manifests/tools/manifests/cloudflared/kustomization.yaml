@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: cloudflared
 
 resources:
+- ns.yaml
 - deployment.yaml
 - secret.akv.yaml

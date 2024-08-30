@@ -4,4 +4,3 @@ metadata:
   name: matoru-ru
   labels:
     istio.io/dataplane-mode: ambient
-    shared-gateway-access: 'true'
