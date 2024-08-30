@@ -9,5 +9,5 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    run: web
+    app: matoru.ru
   type: ClusterIP

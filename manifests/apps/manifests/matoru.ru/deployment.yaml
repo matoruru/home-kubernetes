@@ -6,12 +6,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      run: web
+      app: matoru.ru
   template:
     metadata:
       labels:
         app: matoru.ru
-        run: web
     spec:
       containers:
       - image: matoruru/matoru.ru:latest
