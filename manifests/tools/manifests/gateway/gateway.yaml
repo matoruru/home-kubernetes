@@ -9,7 +9,7 @@ spec:
   gatewayClassName: istio
   listeners:
   - name: http
-    hostname: "*.matoru.ru"
+    hostname: "matoru.ru"
     port: 80
     protocol: HTTP
     allowedRoutes:
@@ -19,7 +19,7 @@ spec:
           matchLabels:
             shared-gateway-access: "true"
   - name: https
-    hostname: "*.matoru.ru"
+    hostname: "matoru.ru"
     port: 443
     protocol: HTTPS
     allowedRoutes:
@@ -28,3 +28,4 @@ spec:
         selector:
           matchLabels:
             shared-gateway-access: "true"
+
