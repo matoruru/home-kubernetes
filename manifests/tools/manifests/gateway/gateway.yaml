@@ -28,7 +28,7 @@ spec:
         selector:
           matchLabels:
             shared-gateway-access: "true"
-  - name: http
+  - name: http-star
     hostname: "*.matoru.ru"
     port: 80
     protocol: HTTP
@@ -38,7 +38,7 @@ spec:
         selector:
           matchLabels:
             shared-gateway-access: "true"
-  - name: https
+  - name: https-star
     hostname: "*.matoru.ru"
     port: 443
     protocol: HTTPS
