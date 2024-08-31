@@ -1,3 +1,4 @@
 - op: add
-  path: /spec/template/metadata/annotations/ambient.istio.io~1redirection
-  value: enabled
+  path: /spec/template/metadata/annotations
+  value:
+    ambient.istio.io/redirection: enabled
