@@ -7,6 +7,7 @@ resources:
 - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v2.12.1
 - ./ns.yaml
 - ./ingress.yaml
+- ./httproute.yaml
 - ./appprojects/
 - ./config/
 
@@ -26,3 +27,9 @@ patches:
     version: v1
     kind: ConfigMap
     name: argocd-cmd-params-cm
+- path: ./patches/argocd-server.yaml
+  target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: argocd-server

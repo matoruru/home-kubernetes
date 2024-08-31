@@ -1,0 +1,3 @@
+- op: add
+  path: /spec/template/metadata/labels/istio.io~1dataplane-mode
+  value: ambient
