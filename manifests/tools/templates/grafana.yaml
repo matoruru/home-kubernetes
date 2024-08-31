@@ -12,6 +12,9 @@ spec:
   - chart: grafana
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 8.5.0
+  - path: manifests/tools/manifests/grafana
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
