@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: grafana
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - chart: grafana
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 8.5.0
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated: {}
