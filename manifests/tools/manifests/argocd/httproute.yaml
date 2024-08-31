@@ -10,5 +10,5 @@ spec:
     namespace: istio-ingress
   rules:
   - backendRefs:
-    - name: web
+    - name: argocd-server
       port: 80
