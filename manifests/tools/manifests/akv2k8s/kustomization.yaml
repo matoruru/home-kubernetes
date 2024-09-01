@@ -39,7 +39,7 @@ patches:
       path: /spec/template/metadata/labels/azure.workload.identity~1use
       value: "true"
     - op: add
-      path: /spec/volumes
+      path: /spec/template/spec/volumes
       value:
       - name: secrets-store01-inline
         csi:
