@@ -3,6 +3,19 @@ kind: Kustomization
 
 namespace: akv2k8s
 
+helmCharts:
+- name: akv2k8s
+  releaseName: akv2k8s
+  version: 2.6.0
+  repo: https://charts.spvapi.no
+  valuesInline:
+    global:
+      keyVaultAuth: environment
+      envFromSecret:
+      - name: akv2k8s-creds
+    env_injector:
+      enabled: false
+
 resources:
 - secretproviderclass.yaml
 
@@ -35,7 +48,7 @@ patches:
           volumeAttributes:
             secretProviderClass: akv2k8-keyvault
     - op: add
-      path: /spec/containers/0/volumeMounts
+      path: /spec/template/spec/containers/0/volumeMounts
       value:
       - name: secrets-store01-inline
         mountPath: /mnt/secrets-store
