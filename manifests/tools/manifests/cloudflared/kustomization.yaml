@@ -7,3 +7,6 @@ resources:
 - ns.yaml
 - deployment.yaml
 - secret.akv.yaml
+- wi-sa.yaml
+- secretstore.yaml
+- externalsecret.yaml
