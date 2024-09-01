@@ -47,8 +47,6 @@ patches:
           readOnly: true
           volumeAttributes:
             secretProviderClass: akv2k8-keyvault
-          nodePublishSecretRef:
-            name: akv2k8s-creds
     - op: add
       path: /spec/template/spec/containers/0/volumeMounts
       value:
