@@ -8,8 +8,11 @@ spec:
     namespace: akv2k8s
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
-  source:
-    chart: akv2k8s
+  sources:
+  - path: manifests/tools/manifests/akv2k8s
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+  - chart: akv2k8s
     repoURL: https://charts.spvapi.no
     targetRevision: 2.6.0
     helm:

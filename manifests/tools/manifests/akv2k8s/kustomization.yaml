@@ -1,0 +1,42 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: akv2k8s
+
+resources:
+- secretproviderclass.yaml
+
+patches:
+- target:
+    group: ''
+    version: v1
+    kind: ServiceAccount
+    name: akv2k8s-controller
+  patch: |-
+    - op: add
+      path: /metadata/annotations/azure.workload.identitycl~1ient-id
+      value: 34de22c5-a3d1-439e-89f8-3b01ca073e1e
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: akv2k8s-controller
+  patch: |-
+    - op: add
+      path: /spec/template/metadata/labels/azure.workload.identity~1use
+      value: "true"
+    - op: add
+      path: /spec/volumes
+      value:
+      - name: secrets-store01-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: akv2k8-keyvault
+    - op: add
+      path: /spec/containers/0/volumeMounts
+      value:
+      - name: secrets-store01-inline
+        mountPath: /mnt/secrets-store
+        readOnly: true
