@@ -27,7 +27,7 @@ patches:
     name: akv2k8s-controller
   patch: |-
     - op: add
-      path: /metadata/annotations/azure.workload.identitycl~1ient-id
+      path: /metadata/annotations/azure.workload.identity~1client-id
       value: 34de22c5-a3d1-439e-89f8-3b01ca073e1e
 # - target:
 #     group: apps
