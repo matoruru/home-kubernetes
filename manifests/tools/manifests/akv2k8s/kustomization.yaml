@@ -10,14 +10,14 @@ helmCharts:
   repo: https://charts.spvapi.no
   valuesInline:
     global:
-    #  keyVaultAuth: environment
-      # envFromSecret:
-      # - name: akv2k8s-creds
+      keyVaultAuth: environment
+      envFromSecret:
+      - name: akv2k8s-creds
     env_injector:
       enabled: false
 
-# resources:
-# - secretproviderclass.yaml
+resources:
+- secretproviderclass.yaml
 
 patches:
 - target:
@@ -29,27 +29,27 @@ patches:
     - op: add
       path: /metadata/annotations/azure.workload.identity~1client-id
       value: 34de22c5-a3d1-439e-89f8-3b01ca073e1e
-# - target:
-#     group: apps
-#     version: v1
-#     kind: Deployment
-#     name: akv2k8s-controller
-#   patch: |-
-#     - op: add
-#       path: /spec/template/metadata/labels/azure.workload.identity~1use
-#       value: "true"
-#     - op: add
-#       path: /spec/template/spec/volumes
-#       value:
-#       - name: secrets-store01-inline
-#         csi:
-#           driver: secrets-store.csi.k8s.io
-#           readOnly: true
-#           volumeAttributes:
-#             secretProviderClass: akv2k8-keyvault
-#     - op: add
-#       path: /spec/template/spec/containers/0/volumeMounts
-#       value:
-#       - name: secrets-store01-inline
-#         mountPath: /mnt/secrets-store
-#         readOnly: true
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: akv2k8s-controller
+  patch: |-
+    - op: add
+      path: /spec/template/metadata/labels/azure.workload.identity~1use
+      value: "true"
+    - op: add
+      path: /spec/template/spec/volumes
+      value:
+      - name: secrets-store01-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: akv2k8-keyvault
+    - op: add
+      path: /spec/template/spec/containers/0/volumeMounts
+      value:
+      - name: secrets-store01-inline
+        mountPath: /mnt/secrets-store
+        readOnly: true
