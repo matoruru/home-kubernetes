@@ -12,10 +12,26 @@ spec:
   - chart: grafana
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 8.5.0
+    helm:
+      valuesObject:
+        grafana.ini:
+          auth.azuread:
+            name: Azure AD
+            enabled: true
+            allow_sign_up: true
+            auto_login: false
+            client_id: __env{CLIENT_ID}
+            client_secret: __env{CLIENT_SECRET}
+            scopes: openid email profile
+            auth_url: https://login.microsoftonline.com/__env{TENANT_ID}/oauth2/v2.0/authorize
+            token_url: https://login.microsoftonline.com/__env{TENANT_ID}/oauth2/v2.0/token
+            allowed_organizations: __env{TENANT_ID}
   - path: manifests/tools/manifests/grafana
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-    automated: {}
+    automated:
+      selfHeal: true
+      prune: true

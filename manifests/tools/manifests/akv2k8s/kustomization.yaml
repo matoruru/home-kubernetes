@@ -11,8 +11,6 @@ helmCharts:
   valuesInline:
     global:
       keyVaultAuth: environment
-      envFromSecret:
-      - name: akv2k8s-creds
     env_injector:
       enabled: false
 
