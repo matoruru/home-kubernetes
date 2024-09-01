@@ -17,7 +17,7 @@ helmCharts:
       enabled: false
 
 resources:
-- workload-identity-sa.yaml
+- wi-sa.yaml
 - secretstore.yaml
 - externalsecret.yaml
 - secretproviderclass.yaml
