@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  annotations:
-    azure.workload.identity/client-id: 34de22c5-a3d1-439e-89f8-3b01ca073e1e
-    azure.workload.identity/tenant-id: 640dd2c2-336d-4abf-b0ee-0024877ea3fb
-  name: akv2k8s-wi-sa
