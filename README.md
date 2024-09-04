@@ -33,22 +33,23 @@ Self-managed. Manages all applications with the beautiful UI.
 My GitHub Action Runners are self-hosted, run on my Raspberry Pis.
 Runner's Dockerfiles are stored in [/gha-runner-images](./gha-runner-images/) folder.
 
-### [akv2k8s](https://akv2k8s.io/)
+### [External Secrets Operator (ESO)](https://external-secrets.io/latest/)
 
-<img width="80px" src="./_assets/akv2k8s-b749ec5f4bfd805a88626e0fd2b9ba82.png">
-
-
-Fetches Secrets from Azure Key vault and generates K8s Secret resources. Most of applications are relying on this.
-
-### [Ingress-NGINX Controller](https://github.com/kubernetes/ingress-nginx)
-
-<img width="80px" src="./_assets/nginx-ingress-controller.png">
+<img width="80px" src="./_assets/eso-logo-large.png">
 
 
-The Ingress-NGINX Controller in your Kubernetes cluster directs all incoming web traffic to the correct services, following specific rules. Although it can manage SSL termination, I've chosen to handle that with Cloudflare instead. This decision simplifies the controller's role, allowing it to focus on routing traffic within the cluster without the redundant task of managing SSL certificates, which can help improve the overall efficiency and performance of my setup.
+Fetches Secrets from Azure Key vault and generates K8s Secret resources. Most of applications are relying on this. Can work with Workload Identity.
+
+### [Istio Ingress Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/)
+
+<img width="80px" src="./_assets/istio-bluelogo-whitebackground-unframed.svg">
+
+Quote from the official docs:
+
+> Along with support for Kubernetes Ingress resources, Istio also allows you to configure ingress traffic using either an Istio Gateway or Kubernetes Gateway resource. A Gateway provides more extensive customization and flexibility than Ingress, and allows Istio features such as monitoring and route rules to be applied to traffic entering the cluster.
 
 ### [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/)
 
 <img width="80px" src="./_assets/cloudflared.png">
 
-Allows me to expose any in-cluster services to the Internet through [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/).
+Exposes in-cluster services to the Internet through [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/).
