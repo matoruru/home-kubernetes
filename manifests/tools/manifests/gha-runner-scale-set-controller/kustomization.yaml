@@ -4,6 +4,6 @@ kind: Kustomization
 namespace: arc-systems
 
 resources:
-- wi-sa.yaml
+- ../../base/workload-identities/Home-Kubernetes/
 - ../../base/external-secrets/
 - externalsecret.yaml
