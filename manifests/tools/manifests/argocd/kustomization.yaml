@@ -9,7 +9,7 @@ resources:
 - ./httproute.yaml
 - ./appprojects/
 - ./wi-sa.yaml
-- ./secretstore.yaml
+- ../../base/external-secrets/
 - ./externalsecret.yaml
 
 patches:

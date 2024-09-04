@@ -7,5 +7,5 @@ resources:
 - ns.yaml
 - deployment.yaml
 - wi-sa.yaml
-- secretstore.yaml
+- ../../base/external-secrets/
 - externalsecret.yaml

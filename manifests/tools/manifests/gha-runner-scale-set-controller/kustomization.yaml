@@ -5,5 +5,5 @@ namespace: arc-systems
 
 resources:
 - wi-sa.yaml
-- secretstore.yaml
+- ../../base/external-secrets/
 - externalsecret.yaml
