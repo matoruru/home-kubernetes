@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: matoru-ru
   labels:
-    istio-injection: enabled
+    shared-gateway-access: 'true'

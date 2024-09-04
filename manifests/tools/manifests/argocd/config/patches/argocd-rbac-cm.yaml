@@ -1,0 +1,8 @@
+- op: add
+  path: /data
+  value:
+    policy.default: ''
+    policy.csv: |
+      g, Admin, role:admin
+      g, ReadOnly, role:readonly
+    scopes: '[roles]'
