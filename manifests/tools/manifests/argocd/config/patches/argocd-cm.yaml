@@ -8,6 +8,9 @@
 
     kustomize.buildOptions: --enable-helm
 
+    # https://argo-cd.readthedocs.io/en/stable/user-guide/status-badge/#status-badge
+    statusbadge.enabled: 'true'
+
     # SSO: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/microsoft/
     url: https://argocd.matoru.ru/ # Replace with the external base URL of your Argo CD
     oidc.config: |
