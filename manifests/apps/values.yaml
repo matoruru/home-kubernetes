@@ -7,4 +7,4 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/matoruru/home-kubernetes
-    targetRevision: istio-gateway
+    targetRevision: main
