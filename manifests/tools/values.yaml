@@ -12,3 +12,7 @@ spec:
 gha:
   chart:
     version: 0.9.3
+
+istio:
+  repoURL: https://istio-release.storage.googleapis.com/charts
+  version: 1.23.0
