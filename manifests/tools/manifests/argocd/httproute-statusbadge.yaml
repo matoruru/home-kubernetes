@@ -1,0 +1,18 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: httproute-statusbadge
+spec:
+  hostnames:
+  - argocd-statusbadge.matoru.ru
+  parentRefs:
+  - name: gateway
+    namespace: istio-ingress
+  rules:
+  - matches:
+    - path:
+        type: Exact
+        value: /api/badge
+  - backendRefs:
+    - name: argocd-server
+      port: 80
