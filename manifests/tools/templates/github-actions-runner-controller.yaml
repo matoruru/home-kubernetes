@@ -42,10 +42,10 @@ spec:
         githubConfigUrl: https://github.com/matoruru/matoruru
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
   ignoreDifferences:
-  - group: actions.github.com
-    kind: AutoscalingListener
-    jsonPointers:
-    - /
+  - group: external-secrets.io
+    kind: ExternalSecret
+    jqPathExpressions:
+    - .spec.data[]?.remoteRef
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
