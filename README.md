@@ -1,5 +1,10 @@
 <h1 align="center">Home-Kubernetes</h1>
 
+[![App Status](https://argocd-statusbadge.matoru.ru/api/badge?name=argo-cd&revision=true&showAppName=true)](https://argocd-statusbadge.matoru.ru/applications/argo-cd)
+[![App Status](https://argocd-statusbadge.matoru.ru/api/badge?name=github-actions-runner-controller&revision=true&showAppName=true)](https://argocd-statusbadge.matoru.ru/applications/github-actions-runner-controller)
+[![App Status](https://argocd-statusbadge.matoru.ru/api/badge?name=external-secrets&revision=true&showAppName=true)](https://argocd-statusbadge.matoru.ru/applications/external-secrets)
+
+
 ## Introduction
 
 Welcome to my Home-Kubernetes repository! My Home-Kubernetes cluster is a lightweight, flexible setup designed for middle-scale, personal projects. This setup can be easily adapted to suit various home automation needs, media servers, and other personal services.
