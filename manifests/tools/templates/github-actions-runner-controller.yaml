@@ -52,6 +52,11 @@ spec:
     namespace: arc-systems
     jqPathExpressions:
     - .
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    namespace: arc-systems
+    jqPathExpressions:
+    - .metadata.labels."role-binding-subject-hash"
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
