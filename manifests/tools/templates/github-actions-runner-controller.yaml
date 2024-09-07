@@ -44,6 +44,7 @@ spec:
   ignoreDifferences:
   - group: actions.github.com
     kind: AutoscalingListener
+    jsonPointers: /
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
