@@ -53,6 +53,11 @@ spec:
     jqPathExpressions:
     - .
   - group: rbac.authorization.k8s.io
+    kind: Role
+    namespace: arc-systems
+    jqPathExpressions:
+    - select(.kind? == "Role")
+  - group: rbac.authorization.k8s.io
     kind: RoleBinding
     namespace: arc-systems
     jqPathExpressions:
