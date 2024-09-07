@@ -6,9 +6,16 @@ spec:
   hostnames:
   - prometheus.matoru.ru
   parentRefs:
-  - name: gateway
-    namespace: istio-ingress
+  - group: gateway.networking.k8s.io	
+    kind: Gateway	
+    name: gateway
   rules:
   - backendRefs:
-    - name: kube-prometheus-stack-grafana
+    - group: ''	
+      kind: Service	
+      name: kube-prometheus-stack-grafana
       port: 80
+    matches:	
+    - path:	
+        type: PathPrefix	
+        value: /
