@@ -9,6 +9,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
+  - path: manifests/tools/manifests/kube-prometheus-stack
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   - chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 62.5.1
@@ -18,12 +21,8 @@ spec:
         prometheus:
           annotations:
             argocd.argoproj.io/skip-health-check: 'true'
-  - path: manifests/tools/manifests/kube-prometheus-stack
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
     - ServerSideApply=true
     automated:
       selfHeal: true
