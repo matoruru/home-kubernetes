@@ -27,12 +27,7 @@ spec:
   - chart: ztunnel
     repoURL: {{ .Values.istio.repoURL }}
     targetRevision: {{ .Values.istio.version }}
-  ignoreDifferences:
-  - group: admissionregistration.k8s.io
-    kind: ValidatingWebhookConfiguration
-    name: istiod-default-validator
-    jsonPointers:
-    - /webhooks/0/failurePolicy
+  {{- include "istio.ignoreDifferences" . | nindent 2 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

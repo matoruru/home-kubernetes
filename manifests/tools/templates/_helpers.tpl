@@ -82,3 +82,17 @@ template:
     - name: dind-home
       emptyDir: {}
 {{- end -}}
+
+{{- define "istio.ignoreDifferences" -}}
+ignoreDifferences:
+- group: admissionregistration.k8s.io
+  kind: ValidatingWebhookConfiguration
+  name: istio-validator-istio-system
+  jsonPointers:
+  - /webhooks/0/failurePolicy
+- group: admissionregistration.k8s.io
+  kind: ValidatingWebhookConfiguration
+  name: istiod-default-validator
+  jsonPointers:
+  - /webhooks/0/failurePolicy
+{{- end -}}
