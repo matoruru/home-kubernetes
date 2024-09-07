@@ -44,6 +44,7 @@ spec:
   ignoreDifferences:
   - group: external-secrets.io
     kind: ExternalSecret
+    namespace: arc-systems
     jqPathExpressions:
     - .spec.data[]?.remoteRef
   syncPolicy:
