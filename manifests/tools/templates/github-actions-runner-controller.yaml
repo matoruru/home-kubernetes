@@ -41,27 +41,6 @@ spec:
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/matoruru
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
-  ignoreDifferences:
-  - group: external-secrets.io
-    kind: ExternalSecret
-    namespace: arc-systems
-    jqPathExpressions:
-    - .spec.data[]?.remoteRef
-  - group: actions.github.com
-    kind: AutoscalingListener
-    namespace: arc-systems
-    jqPathExpressions:
-    - .
-  - group: rbac.authorization.k8s.io
-    kind: Role
-    namespace: arc-systems
-    jqPathExpressions:
-    - select(.kind? == "Role")
-  - group: rbac.authorization.k8s.io
-    kind: RoleBinding
-    namespace: arc-systems
-    jqPathExpressions:
-    - select(.kind? == "RoleBinding")
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
