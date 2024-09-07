@@ -56,7 +56,7 @@ spec:
     kind: RoleBinding
     namespace: arc-systems
     jqPathExpressions:
-    - select(.kind == "RoleBinding")
+    - select(.kind? == "RoleBinding")
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
