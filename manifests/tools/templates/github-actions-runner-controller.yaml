@@ -47,6 +47,11 @@ spec:
     namespace: arc-systems
     jqPathExpressions:
     - .spec.data[]?.remoteRef
+  - group: actions.github.com
+    kind: AutoscalingListener
+    namespace: arc-systems
+    jqPathExpressions:
+    - .
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
