@@ -14,6 +14,7 @@ spec:
     targetRevision: 62.5.1
     helm:
       valuesObject:
+        fullnameOverride: monitoring
         prometheus:
           annotations:
             argocd.argoproj.io/skip-health-check: 'true'
