@@ -15,6 +15,13 @@ spec:
     helm:
       valuesObject:
         azureTenantID: 640dd2c2-336d-4abf-b0ee-0024877ea3fb
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    name: azure-wi-webhook-controller-manager
+    namespace: azure-workload-identity-system
+    jqPathExpressions:
+    - .spec.template.metadata.annotations."kubectl.kubernetes.io/restartedAt"
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
