@@ -15,7 +15,19 @@ spec:
     helm:
       valuesObject:
         azureTenantID: 640dd2c2-336d-4abf-b0ee-0024877ea3fb
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    name: azure-wi-webhook-controller-manager
+    namespace: azure-workload-identity-system
+    # https://github.com/argoproj/argo-cd/issues/3150#issuecomment-1218153486
+    jqPathExpressions:
+    - .spec.template.metadata.annotations."kubectl.kubernetes.io/restartedAt"
+    - if (.spec.template.metadata.annotations | length) == 0 then .spec.template.metadata.annotations else empty end
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-    automated: {}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

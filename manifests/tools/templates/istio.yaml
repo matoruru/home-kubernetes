@@ -27,7 +27,10 @@ spec:
   - chart: ztunnel
     repoURL: {{ .Values.istio.repoURL }}
     targetRevision: {{ .Values.istio.version }}
+  {{- include "istio.ignoreDifferences" . | nindent 2 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-    automated: {}
+    automated:
+      selfHeal: true
+      prune: true
