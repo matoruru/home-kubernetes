@@ -6,4 +6,6 @@ namespace: kube-prometheus
 resources:
 - ./ns.yaml
 - ./httproute.yaml
+- ../../base/workload-identities/Home-Kubernetes/
+- ../../base/external-secrets/
 - ./externalsecret.yaml
