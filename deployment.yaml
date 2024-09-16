@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myclaim
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: slow
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testpvc
+spec:
+  selector:
+    matchLabels:
+      app: testpvc
+  template:
+    metadata:
+      labels:
+        app: testpvc
+    spec:
+      containers:
+      - image: busybox
+        imagePullPolicy: IfNotPresent
+        name: bb
+        command:
+        - sh
+        - -c
+        - cd /app; while true; do date | tee -a output.txt; sleep 1s; done
+        volumeMounts:
+        - name: myvol
+          mountPath: /app
+      volumes:
+      - name: myvol
+        persistentVolumeClaim:
+          claimName: myclaim

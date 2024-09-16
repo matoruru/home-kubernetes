@@ -17,7 +17,8 @@ spec:
         nfs:
           server: 192.168.11.151
           path: /export/nfs
-        storageClass.create: false
+        storageClass:
+          create: false
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
