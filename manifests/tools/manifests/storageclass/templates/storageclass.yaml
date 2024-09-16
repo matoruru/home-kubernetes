@@ -5,5 +5,5 @@ metadata:
 provisioner: nfs.csi.k8s.io
 parameters:
   server: {{ .Values.sc.parameters.server }}
-  path: {{ .Values.sc.parameters.path }}
-  readOnly: "false"
+  share: {{ .Values.sc.parameters.share }}
+  subDir: {{ .Values.sc.parameters.subDir }}
