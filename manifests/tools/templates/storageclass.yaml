@@ -10,7 +10,7 @@ spec:
   project: {{ .Values.spec.project }}
   sources:
   - chart: storageclass
-    repoURL: github.com/argoproj/argo-cd//manifests/cluster-install?ref=main
+    repoURL: github.com/matoruru/home-kubernetes//manifests/tools/manifests/storageclass?ref=main
     targetRevision: 1.0.0
   syncPolicy:
     automated:
