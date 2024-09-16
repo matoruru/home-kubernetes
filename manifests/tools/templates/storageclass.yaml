@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: csi-driver-nfs
+  name: storageclass
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
@@ -9,9 +9,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
-  - chart: csi-driver-nfs
-    repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-    targetRevision: v4.9.0
+  - path: manifests/tools/manifests/storageclass
+    repoURL: https://github.com/matoruru/home-kubernetes
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true
