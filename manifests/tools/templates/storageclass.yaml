@@ -12,6 +12,12 @@ spec:
   - path: manifests/tools/manifests/storageclass
     repoURL: https://github.com/matoruru/home-kubernetes
     targetRevision: add-storageclass
+    helm:
+      valuesObject:
+        sc:
+          parameters:
+            server: 192.168.11.151
+            path: /export/nfs/home-kubernetes
   syncPolicy:
     automated:
       selfHeal: true
