@@ -5,3 +5,4 @@ metadata:
 provisioner: cluster.local/nfs-subdir-external-provisioner
 parameters:
   pathPattern: pvc-${.PVC.namespace}-${.PVC.name}
+  archiveOnDelete: false
