@@ -17,7 +17,8 @@ spec:
         sc:
           parameters:
             server: 192.168.11.151
-            path: /export/nfs/home-kubernetes
+            share: /export/nfs
+            subDir: home-kubernetes
   syncPolicy:
     automated:
       selfHeal: true
