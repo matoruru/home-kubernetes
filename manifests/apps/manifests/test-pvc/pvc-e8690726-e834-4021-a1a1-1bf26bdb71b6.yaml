@@ -16,8 +16,6 @@ spec:
     kind: PersistentVolumeClaim
     name: myclaim
     namespace: test-pvc
-    resourceVersion: "5779850"
-    uid: e8690726-e834-4021-a1a1-1bf26bdb71b6
   nfs:
     path: /export/nfs/home-kubernetes/pvc-test-pvc-myclaim
     server: 192.168.11.151
