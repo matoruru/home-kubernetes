@@ -9,9 +9,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
-  - chart: storageclass
-    repoURL: github.com/matoruru/home-kubernetes//manifests/tools/manifests/storageclass?ref=main
-    targetRevision: 1.0.0
+  - path: manifests/tools/manifests/storageclass
+    repoURL: https://github.com/matoruru/home-kubernetes
+    targetRevision: add-storageclass
   syncPolicy:
     automated:
       selfHeal: true
