@@ -4,4 +4,4 @@ metadata:
   name: slow # HDD mounted on Ubuntu
 provisioner: cluster.local/nfs-subdir-external-provisioner
 parameters:
-  pathPattern: home-kubernetes/pvc-${.PVC.namespace}-${.PVC.name}
+  pathPattern: pvc-${.PVC.namespace}-${.PVC.name}

@@ -16,7 +16,7 @@ spec:
       valuesObject:
         nfs:
           server: 192.168.11.151
-          path: /export/nfs
+          path: /export/nfs/home-kubernetes
         storageClass:
           create: false
   syncPolicy:
