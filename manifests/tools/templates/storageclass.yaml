@@ -11,7 +11,7 @@ spec:
   sources:
   - path: manifests/tools/manifests/storageclass
     repoURL: https://github.com/matoruru/home-kubernetes
-    targetRevision: add-storageclass
+    targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true
