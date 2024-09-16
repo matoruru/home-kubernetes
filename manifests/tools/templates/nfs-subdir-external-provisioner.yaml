@@ -5,14 +5,21 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
-    namespace: kube-system
+    namespace: nfs-provisioner
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
   - chart: nfs-subdir-external-provisioner
     repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
     targetRevision: 4.0.18
+    helm:
+      valuesObject:
+        nfs:
+          server: 192.168.11.151
+          path: /export/nfs
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       selfHeal: true
       prune: true
