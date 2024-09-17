@@ -61,6 +61,11 @@ spec:
               allow_assign_grafana_admin: false
               skip_org_role_sync: false
               use_pkce: true
+          persistence:
+            enabled: true
+            type: pvc
+            storageClass: slow
+            size: 5Gi
   syncPolicy:
     syncOptions:
     - ServerSideApply=true
