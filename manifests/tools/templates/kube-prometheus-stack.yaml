@@ -21,6 +21,16 @@ spec:
         prometheus:
           annotations:
             argocd.argoproj.io/skip-health-check: 'true'
+          prometheusSpec:    
+            storageSpec: 
+              volumeClaimTemplate:
+                spec:
+                  storageClassName: slow
+                  accessModes:
+                  - ReadWriteOnce
+                  resources:
+                    requests:
+                      storage: 50Gi
         grafana:
           envFromSecret: akv-secret
           grafana.ini:
