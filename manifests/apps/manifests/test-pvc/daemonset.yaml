@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: testpvc
 spec:
@@ -18,7 +18,12 @@ spec:
         command:
         - sh
         - -c
-        - cd /app; while true; do date | tee -a output.txt; sleep 1s; done
+        - cd /app; while true; do  echo [$NODE_NAME] $(date) | tee -a output.txt; sleep 1s; done
+        env:
+          - name: NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
         volumeMounts:
         - name: myvol
           mountPath: /app
