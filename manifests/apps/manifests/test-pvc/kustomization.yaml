@@ -6,4 +6,4 @@ namespace: test-pvc
 resources:
 - ns.yaml
 - pvc.yaml
-- deployment.yaml
+- daemonset.yaml
