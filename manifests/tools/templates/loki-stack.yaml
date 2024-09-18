@@ -82,6 +82,12 @@ spec:
           image:
             tag: 11.2.0
           envFromSecret: akv-secret
+          persistence:
+            enabled: true
+            type: pvc
+            storageClassName: slow
+          initChownData:
+            enable: false
           grafana.ini:
             server:
               root_url: https://grafana.matoru.ru
