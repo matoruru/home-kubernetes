@@ -31,5 +31,5 @@ patches:
     kind: Deployment
 - path: ./config/patches/argocd-argocd-server-role.yaml
   target:
-    kind: Role
+    kind: ClusterRole
     name: argocd-server
