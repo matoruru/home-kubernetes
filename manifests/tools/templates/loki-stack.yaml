@@ -123,7 +123,7 @@ spec:
               providers:
               - name: 'grafana-dashboards-kubernetes'
                 orgId: 1
-                folder: 'Kubernetes'
+                folder: ''
                 type: file
                 disableDeletion: true
                 editable: true
