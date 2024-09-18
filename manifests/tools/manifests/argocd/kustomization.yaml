@@ -16,16 +16,16 @@ resources:
 patches:
 - path: ./config/patches/argocd-cm.yaml
   target:
-    version: v1
     kind: ConfigMap
     name: argocd-cm
 - path: ./config/patches/argocd-rbac-cm.yaml
   target:
-    version: v1
     kind: ConfigMap
     name: argocd-rbac-cm
 - path: ./config/patches/argocd-cmd-params-cm.yaml
   target:
-    version: v1
     kind: ConfigMap
     name: argocd-cmd-params-cm
+- path: ./config/patches/deployment.yaml
+  target:
+    kind: Deployment
