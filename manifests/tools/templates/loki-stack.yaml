@@ -79,6 +79,8 @@ spec:
               storageClass: slow
         grafana:
           enabled: true
+          image:
+            tag: 11.2.0
           envFromSecret: akv-secret
           grafana.ini:
             server:
