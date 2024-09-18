@@ -73,10 +73,11 @@ spec:
             persistentVolume:
               enabled: true
               storageClass: slow
-        alertmanager:
-          enabled: true
-          persistence:
-            enabled: false
+          alertmanager:
+            enabled: true
+            persistence:
+              enabled: true
+              storageClass: slow
         grafana:
           enabled: true
           envFromSecret: akv-secret
