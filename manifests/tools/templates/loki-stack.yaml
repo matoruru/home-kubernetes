@@ -67,18 +67,9 @@ spec:
           enabled: true
         prometheus:
           enabled: true
-          annotations:
-            argocd.argoproj.io/skip-health-check: 'true'
-          prometheusSpec:    
-            storageSpec: 
-              volumeClaimTemplate:
-                spec:
-                  storageClassName: slow
-                  accessModes:
-                  - ReadWriteOnce
-                  resources:
-                    requests:
-                      storage: 50Gi
+          server:
+            persistentVolume:
+              storageClassName: slow
         grafana:
           enabled: true
           envFromSecret: akv-secret
