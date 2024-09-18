@@ -67,9 +67,9 @@ spec:
           enabled: true
         prometheus:
           enabled: true
-          server:
-            persistentVolume:
-              storageClassName: slow
+          persistance:
+            enabled: true
+            storageClassName: slow
         grafana:
           enabled: true
           envFromSecret: akv-secret
