@@ -66,9 +66,10 @@ spec:
           enabled: true
         prometheus:
           enabled: true
-          persistance:
-            enabled: true
-            storageClassName: slow
+          server:
+            persistentVolume:
+              enabled: true
+              storageClass: slow
         alertmanager:
           enabled: true
           persistence:
