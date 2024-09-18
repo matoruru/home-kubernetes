@@ -4,7 +4,7 @@ metadata:
   name: httproute
 spec:
   hostnames:
-  - prometheus.matoru.ru
+  - grafana.matoru.ru
   parentRefs:
   - group: gateway.networking.k8s.io	
     kind: Gateway	
@@ -14,7 +14,7 @@ spec:
   - backendRefs:
     - group: ''	
       kind: Service	
-      name: kube-prometheus-stack-grafana
+      name: loki-stack-grafana
       port: 80
       weight: 1
     matches:	
