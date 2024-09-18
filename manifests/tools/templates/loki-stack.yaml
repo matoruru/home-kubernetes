@@ -87,7 +87,7 @@ spec:
             type: pvc
             storageClassName: slow
           initChownData:
-            enable: false
+            enabled: false
           grafana.ini:
             server:
               root_url: https://grafana.matoru.ru
