@@ -41,7 +41,6 @@ spec:
             replicas: 3
           write:
             replicas: 3
-          # Zero out replica counts of other deployment modes
           singleBinary:
             replicas: 0
           ingester:
@@ -97,8 +96,8 @@ spec:
               enabled: true
               allow_sign_up: true
               auto_login: true
-              client_id: $__env{PROMETHEUS_CLIENT_ID}
-              client_secret: $__env{PROMETHEUS_CLIENT_SECRET}
+              client_id: $__env{GRAFANA_CLIENT_ID}
+              client_secret: $__env{GRAFANA_CLIENT_SECRET}
               scopes: openid email profile
               auth_url: https://login.microsoftonline.com/$__env{TENANT_ID}/oauth2/v2.0/authorize
               token_url: https://login.microsoftonline.com/$__env{TENANT_ID}/oauth2/v2.0/token
