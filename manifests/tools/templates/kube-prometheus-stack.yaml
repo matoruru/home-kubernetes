@@ -66,6 +66,9 @@ spec:
             type: pvc
             storageClassName: slow
             size: 5Gi
+          # Because of this error: https://github.com/grafana/helm-charts/issues/752
+          initChownData:
+            enabled: false
   syncPolicy:
     syncOptions:
     - ServerSideApply=true
