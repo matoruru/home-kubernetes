@@ -73,8 +73,7 @@ spec:
         alertmanager:
           enabled: true
           persistence:
-            enabled: true
-            storageClass: slow
+            enabled: false
         grafana:
           enabled: true
           envFromSecret: akv-secret
