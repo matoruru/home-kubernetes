@@ -62,7 +62,6 @@ spec:
           persistence:
             enabled: true
             storageClassName: slow
-            size: 50Gi
         fluent-bit:
           enabled: true
         prometheus:
@@ -70,6 +69,11 @@ spec:
           persistance:
             enabled: true
             storageClassName: slow
+        alertmanager:
+          enabled: true
+          persistence:
+            enabled: true
+            storageClass: slow
         grafana:
           enabled: true
           envFromSecret: akv-secret
