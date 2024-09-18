@@ -9,6 +9,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
+  - path: manifests/tools/manifests/loki-stack
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   - chart: loki-stack
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 2.10.2
@@ -107,7 +110,6 @@ spec:
               use_pkce: true
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
     - ServerSideApply=true
     automated:
       selfHeal: true
