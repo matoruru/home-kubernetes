@@ -60,7 +60,7 @@ spec:
               skip_org_role_sync: false
               use_pkce: true
           sidecar:
-            dashboard:
+            dashboards:
               provider:
                 allowUiUpdates: true
           additionalDataSources:
