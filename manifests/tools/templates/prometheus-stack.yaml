@@ -59,6 +59,14 @@ spec:
               allow_assign_grafana_admin: false
               skip_org_role_sync: false
               use_pkce: true
+          additionalDataSources:
+          - name: Loki
+            type: loki
+            uid: loki
+            url: http://loki-stack.loki-stack:3100/
+            access: proxy
+            editable: false
+            isDefault: false
           persistence:
             enabled: true
             type: pvc
