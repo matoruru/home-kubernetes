@@ -13,8 +13,8 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   - chart: kube-prometheus-stack
-    repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 62.5.1
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 62.7.0
     helm:
       valuesObject:
         fullnameOverride: prometheus-stack
