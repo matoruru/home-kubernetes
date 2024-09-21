@@ -66,8 +66,6 @@ spec:
             url: http://loki-stack.loki-stack:3100/
             access: proxy
             editable: false
-          - name: TestDataSrc
-            type: testdata
           persistence:
             enabled: true
             type: pvc
