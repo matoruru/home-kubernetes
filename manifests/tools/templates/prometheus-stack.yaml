@@ -14,7 +14,7 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
   - chart: kube-prometheus-stack
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 62.7.0
+    targetRevision: 62.5.1
     helm:
       valuesObject:
         fullnameOverride: prometheus-stack
