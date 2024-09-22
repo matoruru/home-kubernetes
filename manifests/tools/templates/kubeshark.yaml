@@ -19,7 +19,19 @@ spec:
       valuesObject:
         tap:
           tls: false
-          serviceMesh: false
+          resources:
+            hub:
+              requests:
+                cpu: 500m
+                memory: 200Mi
+            sniffer:
+              requests:
+                cpu: 500m
+                memory: 200Mi
+            tracer:
+              requests:
+                cpu: 500m
+                memory: 200Mi
   syncPolicy:
     automated:
       selfHeal: true
