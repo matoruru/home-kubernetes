@@ -18,6 +18,7 @@ spec:
     helm:
       valuesObject:
         tap:
+          tls: false
           resources:
             hub:
               requests:
