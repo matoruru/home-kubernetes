@@ -15,6 +15,11 @@ spec:
   - chart: kubeshark
     repoURL: https://helm.kubeshark.co
     targetRevision: 52.3.82
+    helm:
+      valuesObject:
+        tap:
+          tls: false
+          serviceMesh: false
   syncPolicy:
     automated:
       selfHeal: true
