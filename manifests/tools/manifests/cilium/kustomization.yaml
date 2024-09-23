@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: kube-system
 
 resources:
-- ./ns.yaml
 - ./httproute.yaml
