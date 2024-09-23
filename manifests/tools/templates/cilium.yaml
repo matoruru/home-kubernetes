@@ -17,16 +17,6 @@ spec:
     targetRevision: 1.16.1
     helm:
       valuesObject:
-        # This section is important for installing with Istio.
-        # https://docs.cilium.io/en/latest/network/servicemesh/istio/#cilium-configuration
-        kubeProxyReplacement: false
-        socketLB:
-          hostNamespaceOnly: true
-        cni:
-          exclusive: false
-        envoy:
-          enabled: false
-
         hubble:
           relay:
             enabled: true
