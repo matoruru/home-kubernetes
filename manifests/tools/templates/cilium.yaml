@@ -9,11 +9,22 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
+  - path: manifests/tools/manifests/cilium
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   - chart: cilium
     repoURL: https://helm.cilium.io/
     targetRevision: 1.16.1
     helm:
       valuesObject:
+        # This section is important for installing with Istio.
+        # https://docs.cilium.io/en/latest/network/servicemesh/istio/#cilium-configuration
+        kubeProxyReplacement: false
+        socketLB:
+          hostNamespaceOnly: true
+        cni:
+          exclusive: false
+
         hubble:
           relay:
             enabled: true
