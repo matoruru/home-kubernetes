@@ -8,7 +8,7 @@ spec:
   listeners:
   - name: http
     hostname: "matoru.ru"
-    port: 8080
+    port: 80
     protocol: HTTP
     allowedRoutes:
       namespaces:
@@ -18,7 +18,7 @@ spec:
             shared-gateway-access: "true"
   - name: http-star
     hostname: "*.matoru.ru"
-    port: 8080
+    port: 80
     protocol: HTTP
     allowedRoutes:
       namespaces:
@@ -26,3 +26,4 @@ spec:
         selector:
           matchLabels:
             shared-gateway-access: "true"
+
