@@ -4,9 +4,9 @@ metadata:
   annotations:
     networking.istio.io/service-type: ClusterIP
   name: gateway
-  namespace: istio-ingress
+  namespace: kube-system
 spec:
-  gatewayClassName: istio
+  gatewayClassName: cilium
   listeners:
   - name: http
     hostname: "matoru.ru"
