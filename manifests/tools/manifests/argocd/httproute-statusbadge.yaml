@@ -6,7 +6,7 @@ spec:
   hostnames:
   - argocd-statusbadge.matoru.ru
   parentRefs:
-  - name: gateway
+  - name: common
     namespace: kube-system
   rules:
   - matches:

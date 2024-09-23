@@ -7,7 +7,7 @@ spec:
   - matoru.ru
   parentRefs:
   - kind: Gateway
-    name: gateway
+    name: common
     namespace: kube-system
   rules:
   - backendRefs:

@@ -6,7 +6,7 @@ spec:
   hostnames:
   - argocd.matoru.ru
   parentRefs:
-  - name: gateway
+  - name: common
     namespace: kube-system
   rules:
   - backendRefs:
