@@ -7,7 +7,7 @@ spec:
   - argocd.matoru.ru
   parentRefs:
   - name: gateway
-    namespace: istio-ingress
+    namespace: kube-system
   rules:
   - backendRefs:
     - name: argocd-server

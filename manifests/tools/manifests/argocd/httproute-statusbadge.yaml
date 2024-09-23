@@ -7,7 +7,7 @@ spec:
   - argocd-statusbadge.matoru.ru
   parentRefs:
   - name: gateway
-    namespace: istio-ingress
+    namespace: kube-system
   rules:
   - matches:
     - path:
