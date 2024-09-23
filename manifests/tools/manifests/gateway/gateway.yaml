@@ -3,7 +3,7 @@ kind: Gateway
 metadata:
   annotations:
     networking.istio.io/service-type: ClusterIP
-  name: gateway
+  name: common
   namespace: kube-system
 spec:
   gatewayClassName: cilium
