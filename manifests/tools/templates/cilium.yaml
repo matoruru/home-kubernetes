@@ -22,6 +22,8 @@ spec:
         kubeProxyReplacement: true 
         gatewayAPI:
           enabled: true
+          hostNetwork:
+            enabled: true
         hubble:
           relay:
             enabled: true
