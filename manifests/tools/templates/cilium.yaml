@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
-    namespace: cilium
+    namespace: kube-system
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
@@ -17,6 +17,11 @@ spec:
     targetRevision: 1.16.1
     helm:
       valuesObject:
+        k8sServiceHost: 192.168.11.100
+        k8sServicePort: 6443
+        kubeProxyReplacement: true 
+        gatewayAPI:
+          enabled: true
         hubble:
           relay:
             enabled: true
