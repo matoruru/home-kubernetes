@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cilium
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: cilium
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - chart: cilium
+    repoURL: https://helm.cilium.io/
+    targetRevision: 1.16.1
+    helm:
+      valuesObject:
+        hubble:
+          relay:
+            enabled: true
+          ui:
+            enabled: true
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
