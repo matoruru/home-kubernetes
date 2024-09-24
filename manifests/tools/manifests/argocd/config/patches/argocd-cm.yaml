@@ -25,3 +25,12 @@
       - openid
       - profile
       - email
+
+    # https://docs.cilium.io/en/latest/configuration/argocd-issues/#solution
+    resource.exclusions: |
+      - apiGroups:
+        - cilium.io
+        kinds:
+        - CiliumIdentity
+        clusters:
+        - "*"
