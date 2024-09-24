@@ -2,3 +2,4 @@
   path: /data
   value:
     server.insecure: "true"
+    controller.diff.server.side: "true"
