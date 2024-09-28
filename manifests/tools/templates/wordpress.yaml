@@ -17,15 +17,19 @@ spec:
     targetRevision: 23.1.17
     helm:
       valuesObject:
+        # WordPress
+        resourcesPreset: small
         metrics:
           enabled: true
         persistence:
           storageClass: slow
           size: 100Gi
+        # MariaDB
         mariadb:
           primary:
             persistence:
               storageClass: slow
+            resourcesPreset: small
         service:
           type: ClusterIP
   syncPolicy:
