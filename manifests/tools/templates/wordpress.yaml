@@ -22,6 +22,10 @@ spec:
         persistence:
           storageClass: slow
           size: 100Gi
+        mariadb:
+          primary:
+            persistence:
+              storageClass: slow
         service:
           type: ClusterIP
   syncPolicy:
