@@ -10,7 +10,7 @@ spec:
   project: {{ .Values.spec.project }}
   source:
     chart: wordpress
-    repoURL: oci://registry-1.docker.io/bitnamicharts
+    repoURL: registry-1.docker.io/bitnamicharts
     targetRevision: 23.1.17
     helm:
       valuesObject:
