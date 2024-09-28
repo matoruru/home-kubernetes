@@ -10,11 +10,8 @@ spec:
     namespace: kube-system
   rules:
   - backendRefs:
-    - group: ''	
-      kind: Service	
-      name: hubble-ui
+    - name: hubble-ui
       port: 80
-      weight: 1
     matches:	
     - path:	
         type: PathPrefix	

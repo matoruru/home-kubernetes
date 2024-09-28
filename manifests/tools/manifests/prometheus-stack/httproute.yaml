@@ -10,11 +10,8 @@ spec:
     namespace: kube-system
   rules:
   - backendRefs:
-    - group: ''	
-      kind: Service	
-      name: prometheus-stack-grafana
+    - name: prometheus-stack-grafana
       port: 80
-      weight: 1
     matches:	
     - path:	
         type: PathPrefix	
