@@ -1,0 +1,14 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: httproute
+spec:
+  hostnames:
+  - wp.matoru.ru
+  parentRefs:
+  - name: common
+    namespace: kube-system
+  rules:
+  - backendRefs:
+    - name: wordpress
+      port: 80
