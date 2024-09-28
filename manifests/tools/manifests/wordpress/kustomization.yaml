@@ -8,3 +8,4 @@ resources:
 #- ./httproute.yaml
 - ../../base/workload-identities/Home-Kubernetes/
 - ../../base/external-secrets/
+- ./externalsecret.yaml
