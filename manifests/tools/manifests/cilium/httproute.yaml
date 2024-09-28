@@ -6,9 +6,7 @@ spec:
   hostnames:
   - hubble.matoru.ru
   parentRefs:
-  - group: gateway.networking.k8s.io	
-    kind: Gateway	
-    name: common
+  - name: common
     namespace: kube-system
   rules:
   - backendRefs:
