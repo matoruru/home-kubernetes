@@ -12,3 +12,7 @@ spec:
   - backendRefs:
     - name: wordpress
       port: 80
+    matches:	
+    - path:	
+        type: PathPrefix	
+        value: /
