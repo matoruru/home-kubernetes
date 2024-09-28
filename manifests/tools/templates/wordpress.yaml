@@ -18,6 +18,7 @@ spec:
     helm:
       valuesObject:
         # WordPress
+        existingSecret: my-wordpress
         resourcesPreset: small
         metrics:
           enabled: true
@@ -26,6 +27,8 @@ spec:
           size: 100Gi
         # MariaDB
         mariadb:
+          auth:
+            existingSecret: my-mariadb
           primary:
             persistence:
               storageClass: slow
