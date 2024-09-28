@@ -8,8 +8,11 @@ spec:
     namespace: wordpress
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
-  source:
-    chart: wordpress
+  sources:
+  - path: manifests/tools/manifests/wordpress
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+  - chart: wordpress
     repoURL: registry-1.docker.io/bitnamicharts
     targetRevision: 23.1.17
     helm:
