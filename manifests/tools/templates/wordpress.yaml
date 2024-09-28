@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wordpress
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: wordpress
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  source:
+    chart: wordpress
+    repoURL: oci://registry-1.docker.io/bitnamicharts
+    targetRevision: 23.1.17
+    helm:
+      valuesObject:
+        metrics:
+          enabled: true
+      persistence:
+        storageClass: slow
+        size: 100Gi
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
