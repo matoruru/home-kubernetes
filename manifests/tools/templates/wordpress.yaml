@@ -19,9 +19,11 @@ spec:
       valuesObject:
         metrics:
           enabled: true
-      persistence:
-        storageClass: slow
-        size: 100Gi
+        persistence:
+          storageClass: slow
+          size: 100Gi
+        service:
+          type: ClusterIP
   syncPolicy:
     automated:
       selfHeal: true
