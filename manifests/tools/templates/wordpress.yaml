@@ -21,6 +21,8 @@ spec:
         existingSecret: my-wordpress
         resourcesPreset: small
         htaccessPersistenceEnabled: true
+        customHTAccessCM: custom-htaccess
+        # WordPress cache
         wordpressConfigureCache: true
         memcached:
           enabled: true

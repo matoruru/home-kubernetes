@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: custom-htaccess
+data:
+  wordpress-htaccess.conf: |
+    <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "https://wp.matoru.ru"
+    </IfModule>
