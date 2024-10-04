@@ -1,25 +1,30 @@
-apiVersion: descheduler/v1alpha2
-kind: DeschedulerPolicy
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: policy
-profiles:
-- name: removeduplicates
-  pluginConfig:
-  - name: RemoveDuplicates
-    args:
-      excludeOwnerKinds:
-        - ReplicaSet
-  plugins:
-    balance:
-      enabled:
-      - RemoveDuplicates
-- name: removepodshavingtoomanyrestarts
-  pluginConfig:
-  - name: RemovePodsHavingTooManyRestarts
-    args:
-      podRestartThreshold: 50
-      includingInitContainers: true
-  plugins:
-    deschedule:
-      enabled:
-      - RemovePodsHavingTooManyRestarts
+  name: descheduler-policy-configmap
+  namespace: kube-system
+data:
+  policy.yaml: |
+    apiVersion: descheduler/v1alpha2
+    kind: DeschedulerPolicy
+    profiles:
+    - name: removeduplicates
+      pluginConfig:
+      - name: RemoveDuplicates
+        args:
+          excludeOwnerKinds:
+            - ReplicaSet
+      plugins:
+        balance:
+          enabled:
+          - RemoveDuplicates
+    - name: removepodshavingtoomanyrestarts
+      pluginConfig:
+      - name: RemovePodsHavingTooManyRestarts
+        args:
+          podRestartThreshold: 50
+          includingInitContainers: true
+      plugins:
+        deschedule:
+          enabled:
+          - RemovePodsHavingTooManyRestarts
