@@ -12,16 +12,6 @@ spec:
     chart: descheduler
     repoURL: https://kubernetes-sigs.github.io/descheduler
     targetRevision: 0.31.0
-    helm:
-      valuesObject:
-        deschedulerPolicy:
-          profiles:
-          - name: ProfileName
-            pluginConfig:
-            - name: RemoveDuplicates
-              balance:
-                enabled:
-                - RemoveDuplicates
   syncPolicy:
     automated:
       selfHeal: true
