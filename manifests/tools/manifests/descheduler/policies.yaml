@@ -1,9 +1,9 @@
 apiVersion: descheduler/v1alpha2
 kind: DeschedulerPolicy
 metadata:
-  name: removeduplicates
+  name: policy
 profiles:
-- name: ProfileName
+- name: removeduplicates
   pluginConfig:
   - name: RemoveDuplicates
     args:
@@ -13,13 +13,7 @@ profiles:
     balance:
       enabled:
       - RemoveDuplicates
----
-apiVersion: descheduler/v1alpha2
-kind: DeschedulerPolicy
-metadata:
-  name: removepodshavingtoomanyrestarts
-profiles:
-- name: ProfileName
+- name: removepodshavingtoomanyrestarts
   pluginConfig:
   - name: RemovePodsHavingTooManyRestarts
     args:
