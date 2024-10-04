@@ -1,5 +1,7 @@
 apiVersion: descheduler/v1alpha2
 kind: DeschedulerPolicy
+metadata:
+  name: removeduplicates
 profiles:
 - name: ProfileName
   pluginConfig:
@@ -14,6 +16,8 @@ profiles:
 ---
 apiVersion: descheduler/v1alpha2
 kind: DeschedulerPolicy
+metadata:
+  name: removepodshavingtoomanyrestarts
 profiles:
 - name: ProfileName
   pluginConfig:
