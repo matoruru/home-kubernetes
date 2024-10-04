@@ -16,26 +16,16 @@ spec:
       valuesObject:
         deschedulerPolicy:
           profiles:
+          - name: ProfileName
+            pluginConfig:
             - name: RemoveDuplicates
-              pluginConfig:
-              - name: "RemoveDuplicates"
-                args:
-                  excludeOwnerKinds:
-                    - "ReplicaSet"
-              plugins:
-                balance:
-                  enabled:
-                    - "RemoveDuplicates"
-            - name: RemovePodsHavingTooManyRestarts
-              pluginConfig:
-              - name: "RemovePodsHavingTooManyRestarts"
-                args:
-                  podRestartThreshold: 50
-                  includingInitContainers: true
-              plugins:
-                deschedule:
-                  enabled:
-                    - "RemovePodsHavingTooManyRestarts"
+              args:
+                nodeFit: true
+                excludeOwnerKinds:
+                - ReplicaSet
+              balance:
+                enabled:
+                - RemoveDuplicates
   syncPolicy:
     automated:
       selfHeal: true
