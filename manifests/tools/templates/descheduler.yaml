@@ -19,9 +19,6 @@ spec:
           - name: ProfileName
             pluginConfig:
             - name: RemoveDuplicates
-              args:
-                excludeOwnerKinds:
-                - ReplicaSet
               balance:
                 enabled:
                 - RemoveDuplicates
