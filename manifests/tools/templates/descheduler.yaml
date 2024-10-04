@@ -8,11 +8,8 @@ spec:
     namespace: kube-system
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
-  sources:
-  - path: manifests/tools/manifests/descheduler
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-  - chart: descheduler
+  source:
+    chart: descheduler
     repoURL: https://kubernetes-sigs.github.io/descheduler
     targetRevision: 0.31.0
     helm:
