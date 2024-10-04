@@ -1,0 +1,27 @@
+apiVersion: descheduler/v1alpha2
+kind: DeschedulerPolicy
+profiles:
+- name: ProfileName
+  pluginConfig:
+  - name: RemoveDuplicates
+    args:
+      excludeOwnerKinds:
+        - ReplicaSet
+  plugins:
+    balance:
+      enabled:
+      - RemoveDuplicates
+---
+apiVersion: descheduler/v1alpha2
+kind: DeschedulerPolicy
+profiles:
+- name: ProfileName
+  pluginConfig:
+  - name: RemovePodsHavingTooManyRestarts
+    args:
+      podRestartThreshold: 50
+      includingInitContainers: true
+  plugins:
+    deschedule:
+      enabled:
+      - RemovePodsHavingTooManyRestarts
