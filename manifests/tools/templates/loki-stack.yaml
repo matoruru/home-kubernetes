@@ -53,11 +53,11 @@ spec:
             max_concurrent: 2048
           query_range:
             split_queries_by_interval: 0
-            parallelise_shardable_queries: false
+            parallelise_shardable_queries: true
           queryFrontend:
             replicas: 0
           queryScheduler:
-            replicas: 0
+            max_outstanding_requests_per_tenant: 4096
           distributor:
             replicas: 0
           compactor:
@@ -71,6 +71,9 @@ spec:
           persistence:
             enabled: true
             storageClassName: slow
+          limits_config:
+            split_queries_by_interval: 15m
+            max_query_parallelism: 32
         # Promtail: an agent which ships the contents of local logs to Grafana Loki instance
         promtail:
           enabled: true
