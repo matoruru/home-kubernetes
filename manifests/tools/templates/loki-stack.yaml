@@ -33,6 +33,9 @@ spec:
           querier:
             max_concurrent: 4
           deploymentMode: SimpleScalable
+          frontend:
+            max_outstanding_per_tenant: 4096
+            compress_responses: true
           backend:
             replicas: 3
           read:
