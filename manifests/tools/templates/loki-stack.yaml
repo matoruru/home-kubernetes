@@ -26,6 +26,9 @@ spec:
               index:
                 prefix: loki_index_
                 period: 24h
+          server:
+            http_server_read_timeout: 3m
+            http_server_write_timeout: 3m
           ingester:
             chunk_encoding: snappy
           tracing:
@@ -47,7 +50,10 @@ spec:
           ingester:
             replicas: 0
           querier:
-            replicas: 0
+            max_concurrent: 2048
+          query_range:
+            split_queries_by_interval: 0
+            parallelise_shardable_queries: false
           queryFrontend:
             replicas: 0
           queryScheduler:
