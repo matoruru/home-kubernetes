@@ -25,7 +25,7 @@ spec:
         metrics:
           enabled: true
         persistence:
-          storageClass: slow
+          storageClass: fast
           size: 100Gi
         # MariaDB
         mariadb:
@@ -33,7 +33,7 @@ spec:
             existingSecret: my-mariadb
           primary:
             persistence:
-              storageClass: slow
+              storageClass: fast
             resourcesPreset: small
         service:
           type: ClusterIP

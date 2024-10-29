@@ -23,7 +23,7 @@ spec:
             storageSpec: 
               volumeClaimTemplate:
                 spec:
-                  storageClassName: slow
+                  storageClassName: fast
                   accessModes:
                   - ReadWriteOnce
                   resources:
@@ -73,7 +73,7 @@ spec:
           persistence:
             enabled: true
             type: pvc
-            storageClassName: slow
+            storageClassName: fast
             size: 5Gi
           # Because of this error: https://github.com/grafana/helm-charts/issues/752
           initChownData:

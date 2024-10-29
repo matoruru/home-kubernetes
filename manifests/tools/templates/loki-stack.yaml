@@ -70,7 +70,7 @@ spec:
             replicas: 0
           persistence:
             enabled: true
-            storageClassName: slow
+            storageClassName: fast
           limits_config:
             split_queries_by_interval: 15m
             max_query_parallelism: 32
