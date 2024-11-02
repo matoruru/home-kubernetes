@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: minio
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - chart: minio
+    repoURL: registry-1.docker.io/bitnamicharts/minio
+    targetRevision: 14.8.1
+    helm:
+      valuesObject:
+        global:
+          defaultStorageClass: fast
+        persistence:
+          size: 50Gi
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
