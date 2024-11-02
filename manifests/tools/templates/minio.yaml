@@ -10,7 +10,7 @@ spec:
   project: {{ .Values.spec.project }}
   sources:
   - chart: minio
-    repoURL: registry-1.docker.io/bitnamicharts/minio
+    repoURL: registry-1.docker.io/bitnamicharts
     targetRevision: 14.8.1
     helm:
       valuesObject:
