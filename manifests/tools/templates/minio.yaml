@@ -1,23 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nextcloud
+  name: minio
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
-    namespace: nextcloud
+    namespace: minio
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
-  - path: manifests/tools/manifests/nextcloud
+  - path: manifests/tools/manifests/minio
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-  - chart: nextcloud
-    repoURL: https://nextcloud.github.io/helm/
-    targetRevision: 6.2.1
+  - chart: minio
+    repoURL: registry-1.docker.io/bitnamicharts
+    targetRevision: 14.8.1
     helm:
       valuesObject:
-        nextcloud.host: nextcloud.matoru.ru
+        global:
+          defaultStorageClass: fast
+        persistence:
+          size: 50Gi
+        auth:
+          existingSecret: akv-secret
+          rootUserSecretKey: root-user
+          rootPasswordSecretKey: root-password
   syncPolicy:
     automated:
       selfHeal: true
