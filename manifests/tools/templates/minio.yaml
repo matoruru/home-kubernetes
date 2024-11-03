@@ -23,8 +23,8 @@ spec:
           size: 50Gi
         auth:
           existingSecret: akv-secret
-          rootUserSecretKey: root-password
-          rootPasswordSecretKey: root-user
+          rootUserSecretKey: root-user
+          rootPasswordSecretKey: root-password
   syncPolicy:
     automated:
       selfHeal: true
