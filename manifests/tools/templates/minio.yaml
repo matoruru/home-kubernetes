@@ -9,6 +9,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   sources:
+  - path: manifests/tools/manifests/minio
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   - chart: minio
     repoURL: registry-1.docker.io/bitnamicharts
     targetRevision: 14.8.1
@@ -18,9 +21,11 @@ spec:
           defaultStorageClass: fast
         persistence:
           size: 50Gi
+        auth:
+          existingSecret: akv-secret
+          rootUserSecretKey: root-password
+          rootPasswordSecretKey: root-user
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
     automated:
       selfHeal: true
       prune: true
