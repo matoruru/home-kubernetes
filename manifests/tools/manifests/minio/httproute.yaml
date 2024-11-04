@@ -10,8 +10,8 @@ spec:
     namespace: kube-system
   rules:
   - backendRefs:
-    - name: nextcloud
-      port: 80
+    - name: minio
+      port: 9001
     matches:
     - path:
         type: PathPrefix
