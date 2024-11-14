@@ -22,6 +22,7 @@ spec:
           objectStore:
             s3:
               enabled: true
+              usePathStyle: true
               existingSecret: minio-secret
               secretKeys:
                 host: minio-host
