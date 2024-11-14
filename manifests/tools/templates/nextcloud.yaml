@@ -17,7 +17,17 @@ spec:
     targetRevision: 6.2.1
     helm:
       valuesObject:
-        nextcloud.host: nextcloud.matoru.ru
+        nextcloud:
+          host: nextcloud.matoru.ru
+          objectStore:
+            s3:
+              enabled: true
+              existingSecret: minio-secret
+              secretKeys:
+                host: minio-host
+                accessKey: minio-nextcloud-user
+                secretKey: minio-nextcloud-password
+                bucket: minio-nextcloud-bucket
   syncPolicy:
     automated:
       selfHeal: true
