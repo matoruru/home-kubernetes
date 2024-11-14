@@ -33,6 +33,16 @@ spec:
             secretName: nextcloud-secret
             usernameKey: username
             passwordKey: password
+          configs:
+            logging.config.php: |-
+              <?php
+              $CONFIG = array (
+                'log_type' => 'file',
+                'logfile' => 'nextcloud.log',
+                'loglevel' => 0,
+                'logdateformat' => 'F d, Y H:i:s'
+                );
+
   syncPolicy:
     automated:
       selfHeal: true
