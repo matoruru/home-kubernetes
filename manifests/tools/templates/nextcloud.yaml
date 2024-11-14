@@ -42,7 +42,6 @@ spec:
                 'loglevel' => 3,
                 'logdateformat' => 'F d, Y H:i:s'
                 );
-
   syncPolicy:
     automated:
       selfHeal: true
