@@ -28,6 +28,11 @@ spec:
                 accessKey: minio-nextcloud-user
                 secretKey: minio-nextcloud-password
                 bucket: minio-nextcloud-bucket
+          existingSecret:
+            enabled: true
+            secretName: nextcloud-secret
+            usernameKey: username
+            passwordKey: password
   syncPolicy:
     automated:
       selfHeal: true
