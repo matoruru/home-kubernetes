@@ -5,4 +5,7 @@ namespace: nextcloud
 
 resources:
 - ./ns.yaml
+- ../../base/workload-identities/Home-Kubernetes/
+- ../../base/external-secrets/
 - ./httproute.yaml
+- ./externalsecret.yaml
