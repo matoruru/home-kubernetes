@@ -17,11 +17,11 @@ spec:
     targetRevision: 6.2.1
     helm:
       valuesObject:
+        persistence:
+          enabled: true
+          storageClass: fast
         nextcloud:
           host: {{ .Values.nextcloud.host }}
-          persistence:
-            enabled: true
-            storageClass: fast
           objectStore:
             s3:
               enabled: true
