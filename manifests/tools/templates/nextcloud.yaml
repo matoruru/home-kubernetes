@@ -18,7 +18,7 @@ spec:
     helm:
       valuesObject:
         nextcloud:
-          host: nextcloud.matoru.ru
+          host: {{ .Values.nextcloud.host }}
           objectStore:
             s3:
               enabled: true
@@ -42,7 +42,7 @@ spec:
                 'logfile' => 'nextcloud.log',
                 'loglevel' => 3,
                 'logdateformat' => 'F d, Y H:i:s',
-                'overwrite.cli.url' => 'https://nextcloud.matoru.ru',
+                'overwrite.cli.url' => 'https://{{ .Values.nextcloud.host }}',
                 'overwriteprotocol' => 'https'
                 );
   syncPolicy:
