@@ -41,7 +41,9 @@ spec:
                 'log_type' => 'file',
                 'logfile' => 'nextcloud.log',
                 'loglevel' => 3,
-                'logdateformat' => 'F d, Y H:i:s'
+                'logdateformat' => 'F d, Y H:i:s',
+                'overwrite.cli.url' => 'https://nextcloud.matoru.ru',
+                'overwriteprotocol' => 'https'
                 );
   syncPolicy:
     automated:
