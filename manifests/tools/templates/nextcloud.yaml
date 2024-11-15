@@ -19,6 +19,9 @@ spec:
       valuesObject:
         nextcloud:
           host: {{ .Values.nextcloud.host }}
+          persistence:
+            enabled: true
+            storageClass: fast
           objectStore:
             s3:
               enabled: true
