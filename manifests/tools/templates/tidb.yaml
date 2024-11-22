@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tidb-operator
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: tidb-operator
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  source:
+    chart: tidb
+    repoURL: https://charts.pingcap.org/
+    targetRevision: v1.6.0
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
