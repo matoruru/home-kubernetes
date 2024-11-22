@@ -13,7 +13,7 @@ spec:
   pd:
     baseImage: pingcap/pd
     maxFailoverCount: 0
-    replicas: 3
+    replicas: 2
     storageClassName: fast
     requests:
       storage: 10Gi
@@ -21,7 +21,7 @@ spec:
   tikv:
     baseImage: pingcap/tikv
     maxFailoverCount: 0
-    replicas: 3
+    replicas: 2
     storageClassName: fast
     requests:
       cpu: 250m
