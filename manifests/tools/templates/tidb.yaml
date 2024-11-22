@@ -17,6 +17,8 @@ spec:
     repoURL: https://charts.pingcap.org/
     targetRevision: v1.6.0
   syncPolicy:
+    syncOptions:
+    - ServerSideApply=true
     automated:
       selfHeal: true
       prune: true
