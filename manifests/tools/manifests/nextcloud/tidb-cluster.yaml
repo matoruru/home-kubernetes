@@ -24,7 +24,12 @@ spec:
     replicas: 3
     storageClassName: fast
     requests:
+      cpu: 250m
+      memory: 500Mi
       storage: 50Gi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
     config: {}
   tidb:
     baseImage: pingcap/tidb
