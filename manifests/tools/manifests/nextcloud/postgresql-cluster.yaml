@@ -12,6 +12,10 @@ spec:
   volume:
     size: 10Gi
     storageClass: fast
+  users:
+    nextcloud: []
+  databases:
+    nextcloud: nextcloud
   resources:
     requests:
       cpu: 100m

@@ -20,6 +20,13 @@ spec:
       valuesObject:
         nextcloud:
           host: {{ .Values.nextcloud.host }}
+          internalDatabase:
+            enabled: false
+          externalDatabase:
+            enabled: true
+            type: postgresql
+            host: nextcloud-db
+
           objectStore:
             s3:
               enabled: true
@@ -46,7 +53,7 @@ spec:
                 'overwrite.cli.url' => 'https://{{ .Values.nextcloud.host }}',
                 'overwriteprotocol' => 'https'
                 );
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
+  # syncPolicy:
+  #   automated:
+  #     selfHeal: true
+  #     prune: true
