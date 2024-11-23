@@ -9,7 +9,6 @@ spec:
   postgresql:
     version: "16"
   numberOfInstances: 2
-  maintenanceWindows:
   volume:
     size: 10Gi
     storageClass: fast
