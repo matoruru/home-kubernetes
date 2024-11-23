@@ -31,6 +31,8 @@ spec:
               passwordKey: password
               hostKey: host
               databaseKey: database
+          postgresql:
+            enabled: true
           objectStore:
             s3:
               enabled: true
