@@ -9,4 +9,4 @@ resources:
 - ../../base/external-secrets/
 - ./httproute.yaml
 - ./externalsecret.yaml
-#- ./postgresql-cluster.yaml
+- ./postgresql-cluster.yaml
