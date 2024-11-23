@@ -18,21 +18,19 @@ spec:
     targetRevision: 6.2.1
     helm:
       valuesObject:
+        internalDatabase:
+          enabled: false
+        externalDatabase:
+          enabled: true
+          existingSecret:
+            enabled: true
+            secretName: nextcloud-db-secret
+            usernameKey: username
+            passwordKey: password
+            hostKey: host
+            databaseKey: database
         nextcloud:
           host: {{ .Values.nextcloud.host }}
-          internalDatabase:
-            enabled: false
-          externalDatabase:
-            enabled: true
-            existingSecret:
-              enabled: true
-              secretName: nextcloud-db-secret
-              usernameKey: username
-              passwordKey: password
-              hostKey: host
-              databaseKey: database
-          postgresql:
-            enabled: true
           objectStore:
             s3:
               enabled: true
