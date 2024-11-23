@@ -7,7 +7,7 @@ metadata:
 spec:
   teamId: acid
   postgresql:
-    version: 16
+    version: "16"
   numberOfInstances: 2
   maintenanceWindows:
   volume:
