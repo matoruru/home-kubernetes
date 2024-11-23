@@ -16,6 +16,8 @@ spec:
     repoURL: https://opensource.zalando.com/postgres-operator/charts/postgres-operator-ui
     targetRevision: 1.13.0
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       selfHeal: true
       prune: true
