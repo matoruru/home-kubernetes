@@ -34,3 +34,9 @@
         - CiliumIdentity
         clusters:
         - "*"
+      - apiGroups:
+        - "*"
+        kinds:
+        - PersistentVolume
+        clusters:
+        - "*"
