@@ -22,6 +22,8 @@ spec:
     helm:
       valuesObject:
         fullnameOverride: postgres-operator-ui
+        envs:
+          targetNamespace: "*"          
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
