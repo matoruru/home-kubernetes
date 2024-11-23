@@ -1,5 +1,6 @@
 - op: add
-  path: /data
-  value:
-    server.insecure: "true"
-    controller.diff.server.side: "true"
+  path: /data/server.insecure
+  value: "true"
+- op: add
+  path: /data/controller.diff.server.side
+  value: "true"
