@@ -24,9 +24,13 @@ spec:
             enabled: false
           externalDatabase:
             enabled: true
-            type: postgresql
-            host: nextcloud-db
-
+            existingSecret:
+              enabled: true
+              secretName: nextcloud-db-secret
+              usernameKey: username
+              passwordKey: password
+              hostKey: host
+              databaseKey: database
           objectStore:
             s3:
               enabled: true
