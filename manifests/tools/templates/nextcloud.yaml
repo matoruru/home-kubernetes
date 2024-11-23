@@ -47,6 +47,10 @@ spec:
             secretName: nextcloud-secret
             usernameKey: username
             passwordKey: password
+          # https://help.nextcloud.com/t/nextcloud-cant-connect-to-postgres-via-pgbouncer-for-the-first-time-when-it-is-installed/185037/2
+          extraEnv:
+          - name: HOME
+            value: /usr/local/share/ca-certificates/
           configs:
             logging.config.php: |-
               <?php
