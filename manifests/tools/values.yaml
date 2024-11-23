@@ -16,6 +16,3 @@ gha:
 istio:
   repoURL: https://istio-release.storage.googleapis.com/charts
   version: 1.23.0
-
-nextcloud:
-  host: nextcloud.matoru.ru
