@@ -9,6 +9,7 @@ resources:
 - ./httproute.yaml
 - ./httproute-statusbadge.yaml
 - ./appprojects/
+- ./repositories/
 - ../../base/workload-identities/Home-Kubernetes/
 - ../../base/external-secrets/
 - ./externalsecret.yaml

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  name: home-kubernetes
+  namespace: argocd
+stringData:
+  url: https://github.com/matoruru/home-kubernetes.git
+  type: git
+type: Opaque
