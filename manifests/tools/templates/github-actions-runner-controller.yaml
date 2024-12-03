@@ -57,16 +57,6 @@ spec:
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/bekidatta.com
         {{- include "github-actions-runner-controller.valuesObject.base" (merge (dict "runnerImage" "golang:1.23.3") .) | nindent 8 }}
-
-  - chart: gha-runner-scale-set
-    repoURL: ghcr.io/actions/actions-runner-controller-charts
-    targetRevision: {{ .Values.gha.chart.version }}
-    helm:
-      releaseName: raspi-golang1-23-3
-      valuesObject:
-        githubConfigUrl: https://github.com/matoruru/bekidatta.com
-        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
-#        {{- include "github-actions-runner-controller.valuesObject.base" (merge (dict "runnerImage" "golang:1.23.3") .) | nindent 8 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
