@@ -45,7 +45,7 @@ spec:
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}
     helm:
-      releaseName: raspi-golang1.23.3
+      releaseName: raspi-golang1-23-3
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/matoru.ru
         {{- include "github-actions-runner-controller.valuesObject.base" (merge (dict "runnerImage" "golang:1.23.3") .) | nindent 8 }}
