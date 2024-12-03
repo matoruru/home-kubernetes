@@ -56,7 +56,7 @@ spec:
       releaseName: raspi-golang1-23-3
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/bekidatta.com
-        {{- include "github-actions-runner-controller.valuesObject.base" (merge (dict "runnerImage" "golang:1.23.3") .) | nindent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.base" (merge (dict "runnerImage" "matoruru/gha-runner-golang:1.23.3") .) | nindent 8 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
