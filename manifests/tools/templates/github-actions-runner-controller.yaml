@@ -45,6 +45,14 @@ spec:
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}
     helm:
+      releaseName: raspi-matoruru-profile2
+      valuesObject:
+        githubConfigUrl: https://github.com/matoruru/matoruru
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
+  - chart: gha-runner-scale-set
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: {{ .Values.gha.chart.version }}
+    helm:
       releaseName: raspi-golang1-23-3
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/bekidatta.com
