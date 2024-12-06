@@ -4,6 +4,4 @@ kind: Kustomization
 namespace: arc-systems
 
 resources:
-- ../../base/workload-identities/Home-Kubernetes/
-- ../../base/external-secrets/
 - externalsecret.yaml

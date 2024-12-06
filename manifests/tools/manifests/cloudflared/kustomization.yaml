@@ -6,6 +6,4 @@ namespace: cloudflared
 resources:
 - ns.yaml
 - deployment.yaml
-- ../../base/workload-identities/Home-Kubernetes/
-- ../../base/external-secrets/
 - externalsecret.yaml
