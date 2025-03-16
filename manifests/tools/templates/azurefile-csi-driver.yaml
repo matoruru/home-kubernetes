@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: azurefile-csi-driver
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: kube-system
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - chart: azurefile-csi-driver
+    repoURL: https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/charts
+    targetRevision: 1.32.0
+    helm:
+      valuesObject: {}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
