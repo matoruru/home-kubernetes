@@ -57,6 +57,14 @@ spec:
       valuesObject:
         githubConfigUrl: https://github.com/matoruru/bekidatta.com
         {{- include "github-actions-runner-controller.valuesObject.base" (merge (dict "runnerImage" "matoruru/gha-runner-golang:1.23") .) | nindent 8 }}
+  - chart: gha-runner-scale-set
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: {{ .Values.gha.chart.version }}
+    helm:
+      releaseName: raspi-kmdiff
+      valuesObject:
+        githubConfigUrl: https://github.com/matoruru/kmdiff
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
