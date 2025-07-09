@@ -23,6 +23,7 @@ spec:
     helm:
       releaseName: raspi-matoruru-homepage
       valuesObject:
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
         githubConfigUrl: https://github.com/matoruru/matoru.ru
         template:
           spec:
@@ -37,6 +38,7 @@ spec:
     helm:
       releaseName: raspi-golang1-23-3
       valuesObject:
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
         githubConfigUrl: https://github.com/matoruru/bekidatta.com
         template:
           spec:

@@ -1,0 +1,15 @@
+controllerServiceAccount:
+  namespace: arc-systems
+  name: arc-gha-rs-controller
+githubConfigSecret: pre-defined-secret
+maxRunners: 3
+minRunners: 0
+githubConfigUrl: https://github.com/matoruru/matoru.ru
+
+template:
+  spec:
+    containers:
+      - name: runner
+        image: matoruru/gha-runner-base:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/home/runner/run.sh"]
