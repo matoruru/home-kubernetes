@@ -4,7 +4,7 @@ controllerServiceAccount:
   name: arc-gha-rs-controller
 githubConfigSecret: pre-defined-secret
 maxRunners: 3
-minRunners: 0
+minRunners: 2
 {{- end -}}
 
 {{- define "istio.ignoreDifferences" -}}
