@@ -17,36 +17,6 @@ spec:
     targetRevision: {{ .Values.gha.chart.version }}
     helm:
       releaseName: arc
-  - chart: gha-runner-scale-set
-    repoURL: ghcr.io/actions/actions-runner-controller-charts
-    targetRevision: {{ .Values.gha.chart.version }}
-    helm:
-      releaseName: raspi-runner-basic
-      valuesObject:
-        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
-        githubConfigUrl: https://github.com/matoruru/matoru.ru
-        template:
-          spec:
-            containers:
-              - name: runner
-                image: matoruru/gha-runner-base:2.326.0
-                imagePullPolicy: IfNotPresent
-                command: ["/home/runner/run.sh"]
-  - chart: gha-runner-scale-set
-    repoURL: ghcr.io/actions/actions-runner-controller-charts
-    targetRevision: {{ .Values.gha.chart.version }}
-    helm:
-      releaseName: raspi-runner-golang1-23-3
-      valuesObject:
-        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
-        githubConfigUrl: https://github.com/matoruru/bekidatta.com
-        template:
-          spec:
-            containers:
-              - name: runner
-                image: matoruru/gha-runner-golang:1.23
-                imagePullPolicy: IfNotPresent
-                command: ["/home/runner/run.sh"]
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
