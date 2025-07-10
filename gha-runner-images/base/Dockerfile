@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install -y ca-certificates curl gpg jq
 
 # Install Azure CLI
-#RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 WORKDIR /home/runner
 

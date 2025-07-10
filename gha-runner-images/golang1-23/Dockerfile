@@ -12,3 +12,5 @@ RUN curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/
     mv ./kustomize /usr/local/bin/
 
 WORKDIR /home/runner
+
+USER runner
