@@ -25,13 +25,13 @@ spec:
       valuesObject:
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
         githubConfigUrl: https://github.com/matoruru/matoru.ru
-        template:
-          spec:
-            containers:
-              - name: runner
-                image: matoruru/gha-runner-base:2.326.0
-                imagePullPolicy: IfNotPresent
-                command: ["/home/runner/run.sh"]
+        # template:
+        #   spec:
+        #     containers:
+        #       - name: runner
+        #         image: matoruru/gha-runner-base:2.326.0
+        #         imagePullPolicy: IfNotPresent
+        #         command: ["/home/runner/run.sh"]
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}
