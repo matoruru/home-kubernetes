@@ -19,7 +19,7 @@ spec:
       releaseName: raspi-runner-basic
       valuesObject:
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
-        githubConfigUrl: https://github.com/matoruru/matoru.ru
+        githubConfigUrl: https://github.com/matoruru
         template:
           spec:
             containers:
@@ -34,7 +34,7 @@ spec:
       releaseName: raspi-runner-golang1-23-3
       valuesObject:
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
-        githubConfigUrl: https://github.com/matoruru/bekidatta.com
+        githubConfigUrl: https://github.com/matoruru
         template:
           spec:
             containers:
