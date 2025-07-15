@@ -19,17 +19,8 @@ spec:
       releaseName: raspi-runner-basic
       valuesObject:
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.dind" (merge (dict "runnerImage" "matoruru/gha-runner-base:2.326.0") .) | nindent 8 }}
         githubConfigUrl: https://github.com/matoruru/matoru.ru
-        template:
-          spec:
-            containers:
-            - name: runner
-              image: matoruru/gha-runner-base:2.326.0
-              imagePullPolicy: IfNotPresent
-              command: ["/home/runner/run.sh"]
-            {{- include "github-actions-runner-controller.valuesObject.dind.containers" . | nindent 12 }}
-            {{- include "github-actions-runner-controller.valuesObject.dind.initContainer" . | nindent 12 }}
-            {{- include "github-actions-runner-controller.valuesObject.dind.volumes" . | nindent 12 }}
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}
@@ -37,17 +28,8 @@ spec:
       releaseName: raspi-runner-golang1-23-3
       valuesObject:
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.dind" (merge (dict "runnerImage" "matoruru/gha-runner-golang:1.23") .) | nindent 8 }}
         githubConfigUrl: https://github.com/matoruru/bekidatta.com
-        template:
-          spec:
-            containers:
-            - name: runner
-              image: matoruru/gha-runner-golang:1.23
-              imagePullPolicy: IfNotPresent
-              command: ["/home/runner/run.sh"]
-            {{- include "github-actions-runner-controller.valuesObject.dind.containers" . | nindent 12 }}
-            {{- include "github-actions-runner-controller.valuesObject.dind.initContainer" . | nindent 12 }}
-            {{- include "github-actions-runner-controller.valuesObject.dind.volumes" . | nindent 12 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
