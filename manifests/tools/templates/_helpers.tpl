@@ -4,83 +4,59 @@ controllerServiceAccount:
   name: arc-gha-rs-controller
 githubConfigSecret: pre-defined-secret
 maxRunners: 3
-minRunners: 0
+minRunners: 1
+{{- end -}}
+
+{{- define "github-actions-runner-controller.valuesObject.dind" -}}
 template:
   spec:
     initContainers:
-    - name: init-dind-externals
-      image: ghcr.io/actions/actions-runner:latest
-      command: ["cp", "-r", "-v", "/home/runner/externals/.", "/home/runner/tmpDir/"]
-      volumeMounts:
-      - name: dind-externals
-        mountPath: /home/runner/tmpDir
-    - name: init-dind-rootless
-      image: docker:dind-rootless
-      command:
-      - sh
-      - -c
-      - |
-        set -x
-        cp -a /etc/. /dind-etc/
-        echo 'runner:x:1001:1001:runner:/home/runner:/bin/ash' >> /dind-etc/passwd
-        echo 'runner:x:1001:' >> /dind-etc/group
-        echo 'runner:100000:65536' >> /dind-etc/subgid
-        echo 'runner:100000:65536' >>  /dind-etc/subuid
-        chmod 755 /dind-etc;
-        chmod u=rwx,g=rx+s,o=rx /dind-home
-        chown 1001:1001 /dind-home
-      securityContext:
-        runAsUser: 0
-      volumeMounts:
-      - mountPath: /dind-etc
-        name: dind-etc
-      - mountPath: /dind-home
-        name: dind-home
+      - name: init-dind-externals
+        image: {{ .runnerImage }}
+        imagePullPolicy: IfNotPresent
+        command:
+          ["cp", "-r", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+        volumeMounts:
+          - name: dind-externals
+            mountPath: /home/runner/tmpDir
     containers:
-    - name: runner
-      image: {{ .runnerImage | default "ghcr.io/actions/actions-runner:latest" }}
-      command: ["/home/runner/run.sh"]
-      env:
-      - name: DOCKER_HOST
-        value: unix:///home/runner/var/run/docker.sock
-      securityContext:
-        privileged: true
-        runAsUser: 1001
-        runAsGroup: 1001
-      volumeMounts:
-      - name: work
-        mountPath: /home/runner/_work
-      - name: dind-sock
-        mountPath: /home/runner/var/run
-    - name: dind
-      image: docker:dind-rootless
-      args: ["dockerd", "--host=unix:///home/runner/var/run/docker.sock"]
-      securityContext:
-        privileged: true
-        runAsUser: 1001
-        runAsGroup: 1001
-      volumeMounts:
-      - name: work
-        mountPath: /home/runner/_work
-      - name: dind-sock
-        mountPath: /home/runner/var/run
-      - name: dind-externals
-        mountPath: /home/runner/externals
-      - name: dind-etc
-        mountPath: /etc
-      - name: dind-home
-        mountPath: /home/runner
+      - name: runner
+        image: {{ .runnerImage }}
+        imagePullPolicy: IfNotPresent
+        command: ["/home/runner/run.sh"]
+        env:
+          - name: DOCKER_HOST
+            value: unix:///var/run/docker.sock
+        volumeMounts:
+          - name: work
+            mountPath: /home/runner/_work
+          - name: dind-sock
+            mountPath: /var/run
+      - name: dind
+        image: docker:dind
+        args:
+          - dockerd
+          - --host=unix:///var/run/docker.sock
+          - --group=$(DOCKER_GROUP_GID)
+        env:
+          - name: DOCKER_GROUP_GID
+            value: "123"
+        securityContext:
+          privileged: true
+        volumeMounts:
+          - name: work
+            mountPath: /home/runner/_work
+          - name: dind-sock
+            mountPath: /var/run
+          - name: dind-externals
+            mountPath: /home/runner/externals
     volumes:
-    - name: work
-      emptyDir: {}
-    - name: dind-externals
-      emptyDir: {}
-    - name: dind-sock
-      emptyDir: {}
-    - name: dind-etc
-      emptyDir: {}
-    - name: dind-home
-      emptyDir: {}
+      - name: work
+        emptyDir: {}
+      - name: dind-sock
+        emptyDir: {}
+      - name: dind-externals
+        emptyDir: {}
 {{- end -}}
 
 {{- define "istio.ignoreDifferences" -}}

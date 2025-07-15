@@ -7,11 +7,11 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/matoruru/home-kubernetes
-    targetRevision: main
+    targetRevision: upgrade-gha-runner
 
 gha:
   chart:
-    version: 0.9.3
+    version: 0.12.1
 
 istio:
   repoURL: https://istio-release.storage.googleapis.com/charts

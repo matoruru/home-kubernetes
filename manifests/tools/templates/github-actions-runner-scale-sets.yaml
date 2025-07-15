@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: github-actions-runner-scale-sets
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: arc-runners
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - path: manifests/tools/manifests/gha-runner-scale-sets
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+  - chart: gha-runner-scale-set
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: {{ .Values.gha.chart.version }}
+    helm:
+      releaseName: raspi-basic
+      valuesObject:
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.dind" (merge (dict "runnerImage" "matoruru/gha-runner-base:2.326.0") .) | nindent 8 }}
+        githubConfigUrl: https://github.com/matoruru/matoru.ru
+  - chart: gha-runner-scale-set
+    repoURL: ghcr.io/actions/actions-runner-controller-charts
+    targetRevision: {{ .Values.gha.chart.version }}
+    helm:
+      releaseName: raspi-golang1-23-3
+      valuesObject:
+        {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
+        {{- include "github-actions-runner-controller.valuesObject.dind" (merge (dict "runnerImage" "matoruru/gha-runner-golang:1.23") .) | nindent 8 }}
+        githubConfigUrl: https://github.com/matoruru/bekidatta.com
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true
+    automated: {}
