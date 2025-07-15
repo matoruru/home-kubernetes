@@ -23,10 +23,13 @@ spec:
         template:
           spec:
             containers:
-              - name: runner
-                image: matoruru/gha-runner-base:2.326.0
-                imagePullPolicy: IfNotPresent
-                command: ["/home/runner/run.sh"]
+            - name: runner
+              image: matoruru/gha-runner-base:2.326.0
+              imagePullPolicy: IfNotPresent
+              command: ["/home/runner/run.sh"]
+            {{- include "github-actions-runner-controller.valuesObject.dind.containers" . | nindent 12 }}
+            {{- include "github-actions-runner-controller.valuesObject.dind.initContainer" . | nindent 12 }}
+            {{- include "github-actions-runner-controller.valuesObject.dind.volumes" . | nindent 8 }}
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}
@@ -38,10 +41,13 @@ spec:
         template:
           spec:
             containers:
-              - name: runner
-                image: matoruru/gha-runner-golang:1.23
-                imagePullPolicy: IfNotPresent
-                command: ["/home/runner/run.sh"]
+            - name: runner
+              image: matoruru/gha-runner-golang:1.23
+              imagePullPolicy: IfNotPresent
+              command: ["/home/runner/run.sh"]
+            {{- include "github-actions-runner-controller.valuesObject.dind.containers" . | nindent 12 }}
+            {{- include "github-actions-runner-controller.valuesObject.dind.initContainer" . | nindent 12 }}
+            {{- include "github-actions-runner-controller.valuesObject.dind.volumes" . | nindent 8 }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
