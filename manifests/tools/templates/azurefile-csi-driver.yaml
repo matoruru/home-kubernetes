@@ -11,7 +11,7 @@ spec:
   sources:
   - chart: azurefile-csi-driver
     repoURL: https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/charts
-    targetRevision: 1.32.0
+    targetRevision: 1.33.3
     helm:
       valuesObject: {}
   syncPolicy:
