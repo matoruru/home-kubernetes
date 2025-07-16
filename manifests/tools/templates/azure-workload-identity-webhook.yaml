@@ -11,11 +11,11 @@ spec:
   source:
     chart: workload-identity-webhook
     repoURL: https://azure.github.io/azure-workload-identity/charts
-    targetRevision: 1.3.0
+    targetRevision: 1.5.1
     helm:
       valuesObject:
         azureTenantID: 640dd2c2-336d-4abf-b0ee-0024877ea3fb
-        replicaCount: 3
+        replicaCount: 2
   ignoreDifferences:
   - group: apps
     kind: Deployment
