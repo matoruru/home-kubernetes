@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: only-ns
 
 resources:
-- ./ns.yaml
 - ./pod.yaml
