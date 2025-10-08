@@ -40,3 +40,9 @@
         - PersistentVolume
         clusters:
         - "*"
+      - apiGroups:
+        - ""
+        kinds:
+        - "namespace"
+        verbs:
+        - delete
