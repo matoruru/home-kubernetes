@@ -43,6 +43,6 @@
       - apiGroups:
         - ""
         kinds:
-        - "namespace"
-        verbs:
-        - delete
+        - "Namespace"
+        clusters:
+        - "*"
