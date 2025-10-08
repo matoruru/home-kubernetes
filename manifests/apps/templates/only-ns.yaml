@@ -13,6 +13,8 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       selfHeal: true
       prune: true
