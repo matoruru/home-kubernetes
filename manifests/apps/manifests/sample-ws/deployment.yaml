@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: sample-ws
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sample-ws
+    spec:
+      containers:
+      - image: node:latest
+        imagePullPolicy: Always
+        name: web
+        command: ["sh", "-c", "npm install && node /app/index.js"]
+        workingDir: /app
+        ports:
+        - name: http
+          containerPort: 3000
+          protocol: TCP
+        volumeMounts:
+        - name: config
+          mountPath: /app
+        resources:
+          requests:
+            cpu: 20m
+            memory: 200Mi
+          limits:
+            cpu: 100m
+            memory: 500Mi
+        startupProbe:
+          httpGet:
+            path: /
+            port: http
+          failureThreshold: 60
+          periodSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+          failureThreshold: 10
+          periodSeconds: 1
+      volumes:
+      - name: config
+        configMap:
+          name: sample-ws-config

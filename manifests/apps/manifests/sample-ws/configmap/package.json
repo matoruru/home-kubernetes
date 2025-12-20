@@ -1,0 +1,10 @@
+{
+  "name": "sample-ws",
+  "version": "1.0.0",
+  "description": "WebSocket echo server",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^8.14.2"
+  }
+}
+
