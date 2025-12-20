@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - image: node:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         name: web
         command: ["sh", "-c", "npm install && node /app/index.js"]
         workingDir: /app
