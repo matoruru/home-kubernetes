@@ -28,11 +28,11 @@ spec:
           readOnly: true
         resources:
           requests:
+            cpu: 200m
+            memory: 200Mi
+          limits:
             cpu: 500m
             memory: 500Mi
-          limits:
-            cpu: 1000m
-            memory: 1000Mi
         startupProbe:
           httpGet:
             path: /
