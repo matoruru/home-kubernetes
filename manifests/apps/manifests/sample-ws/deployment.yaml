@@ -16,7 +16,7 @@ spec:
       - image: node:latest
         imagePullPolicy: IfNotPresent
         name: web
-        command: ["sh", "-c", "cd app && npm install && node index.js"]
+        command: ["sh", "-c", "cp -rL /app-mnt/* /app/ && echo 'Installing dependencies...' && npm install && echo 'Starting server...' && node /index.js"]
         workingDir: /app
         ports:
         - name: http
@@ -24,7 +24,8 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: config
-          mountPath: /app
+          mountPath: /app-mnt
+          readOnly: true
         resources:
           requests:
             cpu: 20m
@@ -36,7 +37,7 @@ spec:
           httpGet:
             path: /
             port: http
-          failureThreshold: 60
+          failureThreshold: 120
           periodSeconds: 1
         readinessProbe:
           httpGet:
