@@ -16,7 +16,7 @@ spec:
       - image: node:latest
         imagePullPolicy: IfNotPresent
         name: web
-        command: ["sh", "-c", "npm install && node /app/index.js"]
+        command: ["sh", "-c", "cd app && npm install && node index.js"]
         workingDir: /app
         ports:
         - name: http
