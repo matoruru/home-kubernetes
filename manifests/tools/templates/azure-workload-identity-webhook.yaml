@@ -15,7 +15,6 @@ spec:
     helm:
       valuesObject:
         azureTenantID: 640dd2c2-336d-4abf-b0ee-0024877ea3fb
-        replicaCount: 3
   ignoreDifferences:
   - group: apps
     kind: Deployment
