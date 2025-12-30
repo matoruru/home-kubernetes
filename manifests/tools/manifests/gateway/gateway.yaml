@@ -7,7 +7,7 @@ spec:
   gatewayClassName: cilium
   listeners:
   - name: http
-    hostname: "matoru.ru"
+    hostname: "matoruru.com"
     port: 8080
     protocol: HTTP
     allowedRoutes:
@@ -17,7 +17,7 @@ spec:
           matchLabels:
             shared-gateway-access: "true"
   - name: http-star
-    hostname: "*.matoru.ru"
+    hostname: "*.matoruru.com"
     port: 8080
     protocol: HTTP
     allowedRoutes:

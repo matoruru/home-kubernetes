@@ -2,16 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web
-  namespace: matoru-ru
+  namespace: matoruru-com
 spec:
   selector:
     matchLabels:
-      app: matoru.ru
+      app: matoruru.com
   replicas: 2
   template:
     metadata:
       labels:
-        app: matoru.ru
+        app: matoruru.com
     spec:
       containers:
       - image: matoruru/matoru.ru:latest

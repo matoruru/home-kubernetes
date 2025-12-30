@@ -4,7 +4,7 @@ metadata:
   name: httproute-ui
 spec:
   hostnames:
-  - minio.matoru.ru
+  - minio.matoruru.com
   parentRefs:
   - name: common
     namespace: kube-system
@@ -23,7 +23,7 @@ metadata:
   name: httproute-api
 spec:
   hostnames:
-  - s3.matoru.ru
+  - s3.matoruru.com
   parentRefs:
   - name: common
     namespace: kube-system

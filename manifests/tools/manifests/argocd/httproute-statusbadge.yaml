@@ -4,7 +4,7 @@ metadata:
   name: httproute-statusbadge
 spec:
   hostnames:
-  - argocd-statusbadge.matoru.ru
+  - argocd-statusbadge.matoruru.com
   parentRefs:
   - name: common
     namespace: kube-system

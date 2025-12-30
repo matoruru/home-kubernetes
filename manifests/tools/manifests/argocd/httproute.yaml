@@ -4,7 +4,7 @@ metadata:
   name: httproute
 spec:
   hostnames:
-  - argocd.matoru.ru
+  - argocd.matoruru.com
   parentRefs:
   - name: common
     namespace: kube-system

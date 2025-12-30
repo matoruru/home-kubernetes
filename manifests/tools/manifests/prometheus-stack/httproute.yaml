@@ -4,7 +4,7 @@ metadata:
   name: httproute
 spec:
   hostnames:
-  - grafana.matoru.ru
+  - grafana.matoruru.com
   parentRefs:
   - name: common
     namespace: kube-system

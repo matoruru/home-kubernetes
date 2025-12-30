@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: matoru.ru
+  name: matoruru.com
   namespace: {{ .Values.metadata.namespace }}
 spec:
   destination:
-    namespace: matoru-ru
+    namespace: matoruru-com
     server: {{ .Values.spec.destination.server }}
   project: {{ .Values.spec.project }}
   source:
-    path: manifests/apps/manifests/matoru.ru
+    path: manifests/apps/manifests/matoruru.com
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:

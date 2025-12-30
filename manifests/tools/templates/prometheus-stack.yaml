@@ -33,7 +33,7 @@ spec:
           envFromSecret: akv-secret
           grafana.ini:
             server:
-              root_url: https://grafana.matoru.ru
+              root_url: https://grafana.matoruru.com
             users:
               allow_sign_up: false
               auto_assign_org: true

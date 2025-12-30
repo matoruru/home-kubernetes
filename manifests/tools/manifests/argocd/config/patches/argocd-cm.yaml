@@ -12,7 +12,7 @@
     statusbadge.enabled: 'true'
 
     # SSO: https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/microsoft/
-    url: https://argocd.matoru.ru/ # Replace with the external base URL of your Argo CD
+    url: https://argocd.matoruru.com/ # Replace with the external base URL of your Argo CD
     oidc.config: |
       name: Azure
       issuer: https://login.microsoftonline.com/640dd2c2-336d-4abf-b0ee-0024877ea3fb/v2.0

@@ -4,7 +4,7 @@ metadata:
   name: httproute
 spec:
   hostnames:
-  - matoru.ru
+  - matoruru.com
   parentRefs:
   - kind: Gateway
     name: common

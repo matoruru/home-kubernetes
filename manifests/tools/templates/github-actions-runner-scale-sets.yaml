@@ -20,7 +20,7 @@ spec:
       valuesObject:
         {{- include "github-actions-runner-controller.valuesObject.base" . | nindent 8 }}
         {{- include "github-actions-runner-controller.valuesObject.dind" (merge (dict "runnerImage" "matoruru/gha-runner-base:2.326.0") .) | nindent 8 }}
-        githubConfigUrl: https://github.com/matoruru/matoru.ru
+        githubConfigUrl: https://github.com/matoruru/matoruru.com
   - chart: gha-runner-scale-set
     repoURL: ghcr.io/actions/actions-runner-controller-charts
     targetRevision: {{ .Values.gha.chart.version }}

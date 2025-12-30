@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: web
   labels:
-    app: matoru.ru
+    app: matoruru.com
 spec:
   ports:
   - name: http
@@ -11,5 +11,5 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    app: matoru.ru
+    app: matoruru.com
   type: ClusterIP

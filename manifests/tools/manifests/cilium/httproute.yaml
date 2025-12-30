@@ -4,7 +4,7 @@ metadata:
   name: httproute
 spec:
   hostnames:
-  - hubble.matoru.ru
+  - hubble.matoruru.com
   parentRefs:
   - name: common
     namespace: kube-system
