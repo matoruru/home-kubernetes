@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: idobata
-  replicas: 1 # NOTE: has to be 1 because the idobata service is not scalable yet
+      app: idobata-api
+  replicas: 1 # NOTE: has to be 1 because the idobata-api service is not scalable yet
   template:
     metadata:
       labels:
-        app: idobata
+        app: idobata-api
     spec:
       containers:
       - image: matoruru/idobata-api:0.0.0

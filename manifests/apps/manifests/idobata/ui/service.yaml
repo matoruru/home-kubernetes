@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: ui
   labels:
-    app: idobata
+    app: idobata-ui
 spec:
   ports:
   - name: http
@@ -11,5 +11,5 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: idobata
+    app: idobata-ui
   type: ClusterIP
