@@ -5,5 +5,7 @@ namespace: idobata
 
 resources:
 - ./ns.yaml
+- ./sa-wi.yaml
+- ./secretstore.yaml
 - ./api
 - ./ui

@@ -27,3 +27,9 @@ spec:
           limits:
             cpu: 500m
             memory: 500Mi
+        env:
+        - name: NODE_ENV
+          value: production
+        envFrom:
+        - secretRef:
+            name: api-secret

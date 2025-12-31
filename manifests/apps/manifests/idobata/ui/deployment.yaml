@@ -27,3 +27,9 @@ spec:
           limits:
             cpu: 100m
             memory: 200Mi
+        env:
+        - name: NODE_ENV
+          value: production
+        envFrom:
+        - secretRef:
+            name: ui-secret
