@@ -9,7 +9,7 @@ spec:
   - name: http
     port: 8080
     protocol: TCP
-    targetPort: 4173
+    targetPort: 80
   selector:
     app: idobata
   type: ClusterIP
