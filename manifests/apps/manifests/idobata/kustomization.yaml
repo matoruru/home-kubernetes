@@ -15,6 +15,6 @@ resources:
 - ./ns.yaml
 - ./sa-wi.yaml
 - ./secretstore.yaml
-- ./cronjob.yaml
 - ./api
 - ./ui
+- ./reload-images
