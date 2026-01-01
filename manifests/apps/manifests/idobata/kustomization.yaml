@@ -4,10 +4,10 @@ kind: Kustomization
 namespace: idobata
 
 images:
-- name: matoruru/idobata-api
+- name: matoruru_idobata-api
   newName: matoruru/idobata-api
   newTag: 0.0.0
-- name: matoruru/idobata-ui
+- name: matoruru_idobata-ui
   newName: matoruru/idobata-ui
   newTag: 0.0.0
 

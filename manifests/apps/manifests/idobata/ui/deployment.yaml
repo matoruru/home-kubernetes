@@ -13,7 +13,7 @@ spec:
         app: idobata-ui
     spec:
       containers:
-      - image: matoruru/idobata-ui:0.0.0
+      - image: matoruru_idobata-ui
         imagePullPolicy: IfNotPresent
         name: ui
         ports:

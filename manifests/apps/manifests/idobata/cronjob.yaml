@@ -10,14 +10,14 @@ spec:
         spec:
           containers:
           - name: api
-            image: matoruru/idobata-api:0.0.0
+            image: matoruru_idobata-api
             imagePullPolicy: Always
             command:
             - /bin/sh
             - -c
             - exit 0
           - name: ui
-            image: matoruru/idobata-ui:0.0.0
+            image: matoruru_idobata-ui
             imagePullPolicy: Always
             command:
             - /bin/sh
