@@ -3,9 +3,18 @@ kind: Kustomization
 
 namespace: idobata
 
+images:
+- name: matoruru/idobata-api
+  newName: matoruru/idobata-api
+  newTag: 0.0.0
+- name: matoruru/idobata-ui
+  newName: matoruru/idobata-ui
+  newTag: 0.0.0
+
 resources:
 - ./ns.yaml
 - ./sa-wi.yaml
 - ./secretstore.yaml
+- ./cronjob.yaml
 - ./api
 - ./ui
