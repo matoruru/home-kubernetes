@@ -6,7 +6,7 @@ namespace: idobata
 images:
 - name: matoruru_idobata-api
   newName: matoruru/idobata-api
-  newTag: 0.0.0
+  newTag: 0.0.0-1
 - name: matoruru_idobata-ui
   newName: matoruru/idobata-ui
   newTag: 0.0.0-3
