@@ -8,8 +8,8 @@ rules:
   resources:
   - deployments
   resourceNames:
-  - idobata-api
-  - idobata-ui
+  - api
+  - ui
   verbs:
   - get
   - patch

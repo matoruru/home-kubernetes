@@ -16,14 +16,14 @@ spec:
           initContainers:
           - name: api
             image: matoruru_idobata-api
-            imagePullPolicy: Always
+            imagePullPolicy: Always # This is necessary to pull the fresh image
             command:
             - /bin/sh
             - -c
             - echo "A fresh docker image for api has been pulled!"
           - name: ui
             image: matoruru_idobata-ui
-            imagePullPolicy: Always
+            imagePullPolicy: Always # This is necessary to pull the fresh image
             command:
             - /bin/sh
             - -c
@@ -31,15 +31,16 @@ spec:
           containers:
           - name: restart
             image: bitnami/kubectl:latest
+            imagePullPolicy: IfNotPresent
             command:
             - /bin/sh
             - -c
             - |
               NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
-              echo "Restarting Deployment/idobata-api at $(date)"
-              kubectl -n "$NAMESPACE" rollout restart deployment idobata-api
-              echo "Deployment/idobata-api restarted at $(date)"
-              echo "Restarting Deployment/idobata-ui at $(date)"
-              kubectl -n "$NAMESPACE" rollout restart deployment idobata-ui
-              echo "Deployment/idobata-ui restarted at $(date)"
+              echo "Restarting Deployment/api at $(date)"
+              kubectl -n "$NAMESPACE" rollout restart deployment api
+              echo "Deployment/api restarted at $(date)"
+              echo "Restarting Deployment/ui at $(date)"
+              kubectl -n "$NAMESPACE" rollout restart deployment ui
+              echo "Deployment/ui restarted at $(date)"
           restartPolicy: Never
