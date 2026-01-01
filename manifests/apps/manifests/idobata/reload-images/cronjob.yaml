@@ -37,10 +37,6 @@ spec:
             - -c
             - |
               NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
-              echo "Restarting Deployment/api at $(date)"
-              kubectl -n "$NAMESPACE" rollout restart deployment api
-              echo "Deployment/api restarted at $(date)"
-              echo "Restarting Deployment/ui at $(date)"
-              kubectl -n "$NAMESPACE" rollout restart deployment ui
-              echo "Deployment/ui restarted at $(date)"
+              echo "Restarting Deployment/api and Deployment/ui at $(date)"
+              kubectl -n "$NAMESPACE" rollout restart deployment api ui
           restartPolicy: Never
