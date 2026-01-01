@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: ui
 spec:
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: idobata-ui
