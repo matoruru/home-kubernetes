@@ -4,6 +4,7 @@ metadata:
   name: reload-docker-images
 spec:
   suspend: true
+  schedule: "0 0 1 1 *"
   jobTemplate:
     spec:
       template:
