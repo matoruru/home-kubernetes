@@ -19,12 +19,12 @@ spec:
             command:
             - /bin/sh
             - -c
-            - exit 0
+            - echo "A fresh docker image for api has been pulled!"
           - name: ui
             image: matoruru_idobata-ui
             imagePullPolicy: Always
             command:
             - /bin/sh
             - -c
-            - exit 0
+            - echo "A fresh docker image for ui has been pulled!"
           restartPolicy: Never
