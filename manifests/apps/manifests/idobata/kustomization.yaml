@@ -9,7 +9,7 @@ images:
   newTag: 0.0.0-2
 - name: matoruru_idobata-ui
   newName: matoruru/idobata-ui
-  newTag: 0.0.0-3
+  newTag: 0.0.0-4
 
 resources:
 - ./ns.yaml
