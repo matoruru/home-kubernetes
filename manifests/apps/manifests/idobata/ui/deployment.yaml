@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: idobata-ui
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
