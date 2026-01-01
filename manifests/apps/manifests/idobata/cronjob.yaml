@@ -5,6 +5,9 @@ metadata:
 spec:
   suspend: true
   schedule: "0 0 1 1 *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   jobTemplate:
     spec:
       template:
@@ -24,3 +27,4 @@ spec:
             - /bin/sh
             - -c
             - exit 0
+          restartPolicy: Never
