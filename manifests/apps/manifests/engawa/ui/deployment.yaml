@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: engawa-ui
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
