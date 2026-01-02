@@ -17,4 +17,5 @@ resources:
 - ./secretstore.yaml
 - ./api
 - ./ui
-- ./postgresql.yaml
+- ./db
+
