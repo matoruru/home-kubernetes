@@ -8,8 +8,8 @@ images:
   newName: matoruru/engawa-api
   newTag: 0.0.0-2
 - name: matoruru_engawa-ui
-  newName: matoruru/engawa-ui
-  newTag: 0.0.0-4
+  newName: matoruru/iengawa-ui
+  newTag: 0.0.0-5
 
 resources:
 - ./ns.yaml
