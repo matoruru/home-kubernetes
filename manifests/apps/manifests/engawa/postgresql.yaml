@@ -1,0 +1,22 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  labels:
+    team: acid
+  name: postgres
+spec:
+  allowedSourceRanges: null
+  numberOfInstances: 1
+  postgresql:
+    version: "16"
+  resources:
+    limits:
+      cpu: 500m
+      memory: 500Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  teamId: acid
+  volume:
+    size: 50Gi
+    storageClass: fast
