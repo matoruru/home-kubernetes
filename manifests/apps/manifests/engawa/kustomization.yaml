@@ -8,7 +8,7 @@ images:
   newName: matoruru/engawa-api
   newTag: 0.0.0-2
 - name: matoruru_engawa-ui
-  newName: matoruru/iengawa-ui
+  newName: matoruru/engawa-ui
   newTag: 0.0.0-5
 
 resources:
