@@ -9,7 +9,7 @@ images:
   newTag: 0.0.0-5
 - name: matoruru_engawa-ui
   newName: matoruru/engawa-ui
-  newTag: 0.0.0-6
+  newTag: 0.0.0-7
 
 resources:
 - ./ns.yaml
