@@ -6,7 +6,7 @@ namespace: engawa
 images:
 - name: matoruru_engawa-api
   newName: matoruru/engawa-api
-  newTag: 0.0.0-8
+  newTag: 0.0.0-9
 - name: matoruru_engawa-ui
   newName: matoruru/engawa-ui
   newTag: 0.0.0-7
