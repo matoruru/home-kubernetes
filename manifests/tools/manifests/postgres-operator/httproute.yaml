@@ -11,7 +11,7 @@ spec:
   rules:
   - backendRefs:
     - name: postgres-operator-ui
-      port: 8001
+      port: 80
     matches:	
     - path:	
         type: PathPrefix	
