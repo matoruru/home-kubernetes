@@ -10,6 +10,9 @@ images:
 - name: matoruru_engawa-ui
   newName: matoruru/engawa-ui
   newTag: 0.0.0-5
+- name: matoruru_idobata-api
+  newName: matoruru/engawa-api
+  newTag: 0.0.0-3
 
 resources:
 - ./ns.yaml
