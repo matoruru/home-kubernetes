@@ -5,7 +5,6 @@ metadata:
     team: acid
   name: postgres
 spec:
-  allowedSourceRanges: null
   numberOfInstances: 1
   postgresql:
     version: "16"
