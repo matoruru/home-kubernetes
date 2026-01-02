@@ -31,6 +31,3 @@ spec:
         env:
         - name: NODE_ENV
           value: production
-        envFrom:
-        - secretRef:
-            name: ui-secret
