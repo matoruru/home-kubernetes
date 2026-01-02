@@ -4,4 +4,4 @@ metadata:
   annotations:
     azure.workload.identity/client-id: a6ec9282-4df6-4691-8126-3338031ad264
     azure.workload.identity/tenant-id: 640dd2c2-336d-4abf-b0ee-0024877ea3fb
-  name: idobata-wi
+  name: engawa-wi

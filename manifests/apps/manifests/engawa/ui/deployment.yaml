@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: ui
 spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: idobata-api
-  replicas: 1 # NOTE: has to be 1 because the idobata-api service is not scalable yet
+      app: engawa-ui
+  replicas: 1
   template:
     metadata:
       labels:
-        app: idobata-api
+        app: engawa-ui
     spec:
       containers:
-      - image: matoruru_idobata-api
+      - image: matoruru_engawa-ui
         imagePullPolicy: IfNotPresent
-        name: api
+        name: ui
         ports:
         - name: http
           containerPort: 3000
           protocol: TCP
         resources:
           requests:
-            cpu: 200m
-            memory: 200Mi
+            cpu: 100m
+            memory: 100Mi
           limits:
-            cpu: 500m
-            memory: 500Mi
+            cpu: 300m
+            memory: 300Mi
         env:
         - name: NODE_ENV
           value: production
         envFrom:
         - secretRef:
-            name: api-secret
+            name: ui-secret

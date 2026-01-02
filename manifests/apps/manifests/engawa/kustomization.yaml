@@ -1,14 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: idobata
+namespace: engawa
 
 images:
-- name: matoruru_idobata-api
-  newName: matoruru/idobata-api
+- name: matoruru_engawa-api
+  newName: matoruru/engawa-api
   newTag: 0.0.0-2
-- name: matoruru_idobata-ui
-  newName: matoruru/idobata-ui
+- name: matoruru_engawa-ui
+  newName: matoruru/engawa-ui
   newTag: 0.0.0-4
 
 resources:

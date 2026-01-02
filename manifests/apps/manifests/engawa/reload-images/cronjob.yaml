@@ -15,14 +15,14 @@ spec:
           serviceAccountName: reload-images
           initContainers:
           - name: api
-            image: matoruru_idobata-api
+            image: matoruru_engawa-api
             imagePullPolicy: Always # This is necessary to pull the fresh image
             command:
             - /bin/sh
             - -c
             - echo "A fresh docker image for api has been pulled!"
           - name: ui
-            image: matoruru_idobata-ui
+            image: matoruru_engawa-ui
             imagePullPolicy: Always # This is necessary to pull the fresh image
             command:
             - /bin/sh
