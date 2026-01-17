@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  destination:
+    namespace: traefik
+    server: {{ .Values.spec.destination.server }}
+  project: {{ .Values.spec.project }}
+  sources:
+  - chart: traefik
+    repoURL: https://traefik.github.io/charts
+    targetRevision: v3.6.6
+    helm:
+      valuesObject:
+        ingressClass:
+          enabled: false
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
