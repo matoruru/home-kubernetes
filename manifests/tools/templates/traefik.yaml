@@ -16,6 +16,8 @@ spec:
       valuesObject:
         deployment:
           kind: DaemonSet
+        service:
+          type: ClusterIP
         ingressClass:
           enabled: false
         providers:
