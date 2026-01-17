@@ -14,8 +14,17 @@ spec:
     targetRevision: 38.0.2
     helm:
       valuesObject:
+        deployment:
+          kind: DaemonSet
         ingressClass:
           enabled: false
+        providers:
+          kubernetesCRD:
+            enabled: false
+          kubernetesIngress:
+            enabled: false
+          kubernetesGateway:
+            enabled: true
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
