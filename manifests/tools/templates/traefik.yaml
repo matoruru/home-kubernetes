@@ -11,7 +11,7 @@ spec:
   sources:
   - chart: traefik
     repoURL: https://traefik.github.io/charts
-    targetRevision: v3.6.6
+    targetRevision: 38.0.2
     helm:
       valuesObject:
         ingressClass:
