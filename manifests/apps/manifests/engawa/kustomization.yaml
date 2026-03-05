@@ -15,6 +15,7 @@ resources:
 - ./ns.yaml
 - ./sa-wi.yaml
 - ./secretstore.yaml
+- ./networkpolicy.yaml
 - ./api
 - ./ui
 - ./db

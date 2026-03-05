@@ -17,6 +17,14 @@ spec:
       - image: matoruru_engawa-ui
         imagePullPolicy: IfNotPresent
         name: ui
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
         ports:
         - name: http
           containerPort: 3000
@@ -31,3 +39,17 @@ spec:
         env:
         - name: NODE_ENV
           value: production
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3

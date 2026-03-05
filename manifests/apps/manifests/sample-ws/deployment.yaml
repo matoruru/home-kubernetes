@@ -16,6 +16,14 @@ spec:
       - image: node:latest
         imagePullPolicy: IfNotPresent
         name: web
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
         command: ["sh", "-c", "cp -rL /app-mnt/* /app/ && echo 'Installing dependencies...' && npm install && echo 'Starting server...' && node index.js"]
         workingDir: /app
         ports:
@@ -26,6 +34,10 @@ spec:
         - name: config
           mountPath: /app-mnt
           readOnly: true
+        - name: app-dir
+          mountPath: /app
+        - name: tmp-npm
+          mountPath: /.npm
         resources:
           requests:
             cpu: 200m
@@ -39,6 +51,13 @@ spec:
             port: http
           failureThreshold: 120
           periodSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
         readinessProbe:
           httpGet:
             path: /
@@ -49,3 +68,7 @@ spec:
       - name: config
         configMap:
           name: sample-ws-config
+      - name: app-dir
+        emptyDir: {}
+      - name: tmp-npm
+        emptyDir: {}

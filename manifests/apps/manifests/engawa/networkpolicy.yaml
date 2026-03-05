@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-and-allow-internal
+  namespace: engawa
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  ingress:
+  # Allow traffic from istio-ingressgateway (assuming it's in istio-system namespace or has a specific label)
+  # This might need adjustment depending on actual ingress setup, but typically you label the ingress namespace.
+  # If we don't know the ingress namespace label, we might need a broader allow, but let's try to allow all for now.
+  # Let's allow traffic from anywhere to the exposed ports, or better, allow traffic from namespaces labeled with ingress.
+  # Actually, the implementation plan just says: "Ingress from Istio ingress gateway to exposed services (ui and api)"
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: istio-system
+      podSelector:
+        matchLabels:
+          app: istio-ingressgateway
+  # Allow all internal traffic within the engawa namespace
+  - from:
+    - podSelector: {}
